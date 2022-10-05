@@ -54,37 +54,61 @@ class Intro(SlideScene):
 
         expertmodels = Tex("Expert-constructed constitutive models").move_to(2*UP)
         limitations = BulletedList("Requires expert knowledge", "Poor fitting").set_color(RED).move_to(0.72*UP)
+        ddmodels = Tex("$\\rightarrow$", " data-driven strain energy functions").move_to(DOWN)
+        PImodels = Tex("Physics-informed", " data-driven strain energy functions").move_to(2*UP)
+        PImodels[0].set_color(YELLOW)
         self.play(Write(expertmodels))
         self.slide_break()
         self.play(FadeIn(limitations[0],shift=0.5*UP))
         self.slide_break()
         self.play(FadeIn(limitations[1],shift=0.5*UP))
         self.slide_break()
+        self.play(Write(ddmodels))
 
         self.play(FadeOut(expertmodels, limitations))
+        
+        self.play(ReplacementTransform(ddmodels, PImodels))
 
-        ddmodels = Tex("Data-driven", " strain energy functions").move_to(2*UP)
-        polyconv = Tex("Polyconvexity","?").set_color(YELLOW).move_to(UP)
+        consistent = Tex("Consistent", " data-driven strain energy functions")
+        objective = Tex("Objective", " data-driven strain energy functions")
+        polyconvex = Tex("Polyconvex", " data-driven strain energy functions")
+        
+        for obj in [consistent, objective, polyconvex]:
+            obj.move_to(2*UP)
+            obj[0].set_color(YELLOW)
+        
+        self.wait()
+        self.play(ReplacementTransform(PImodels, consistent))
+        self.wait()
+        self.play(ReplacementTransform(consistent, objective))
+        self.wait()
+        self.play(ReplacementTransform(objective, polyconvex))
+        self.slide_break()
+        
+        benefits = Group(
+            Tex("$\\bullet$ Physically reasonable"),
+            Tex("$\\bullet$ Numerically stable")
+        ).arrange(DOWN,aligned_edge=LEFT).align_to(polyconvex, LEFT+UP).shift(DOWN+0.3*RIGHT)
+        self.play(Write(benefits[0]))
+        self.slide_break()
+        self.play(Write(benefits[1]))
+        self.slide_break()
+        self.play(FadeOut(benefits))
+
         workarounds = Group(
-            Tex("Ignored"),
-            Tex("Convexity in $\mathbf{C}$?"),
-            Tex("Approximate convexity")
-        ).set_color(YELLOW).move_to(UP)
-
-        self.play(Write(ddmodels))
+            Tex("$\\bullet$ Ignored"),
+            Tex("$\\bullet$ Convexity in $\mathbf{C}$?"),
+            Tex("$\\bullet$ Numerical approximations")
+        ).arrange(DOWN,aligned_edge=LEFT).align_to(polyconvex, LEFT+UP).shift(DOWN+0.3*RIGHT)
         self.slide_break()
-        self.play(FadeIn(polyconv[0]))
-        self.play(FadeIn(polyconv[1]))
+        self.play(Write(workarounds[0]))
         self.slide_break()
-
-        self.play(ReplacementTransform(polyconv, workarounds[0]))
+        self.play(Write(workarounds[1]))
         self.slide_break()
-        self.play(ReplacementTransform(workarounds[0], workarounds[1]))
+        self.play(Write(workarounds[2]))
         self.slide_break()
-        self.play(ReplacementTransform(workarounds[1], workarounds[2]))
+        self.play(FadeOut(workarounds, polyconvex))
         self.slide_break()
-
-        self.play(FadeOut(workarounds[2]), FadeOut(ddmodels))
 
         canwepoly = Tex("Can we guarantee ", "polyconvexity", " in a data-driven framework?")
         canwepoly[1].set_color(YELLOW)
