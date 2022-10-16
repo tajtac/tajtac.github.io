@@ -66,7 +66,7 @@ class Intro(SlideScene):
         self.play(Write(ddmodels))
 
         self.play(FadeOut(expertmodels, limitations))
-        
+        self.slide_break()
         self.play(ReplacementTransform(ddmodels, PImodels))
 
         consistent = Tex("Consistent", " data-driven strain energy functions")
@@ -77,7 +77,7 @@ class Intro(SlideScene):
             obj.move_to(2*UP)
             obj[0].set_color(YELLOW)
         
-        self.wait()
+        self.slide_break()
         self.play(ReplacementTransform(PImodels, consistent))
         self.wait()
         self.play(ReplacementTransform(consistent, objective))
@@ -87,19 +87,104 @@ class Intro(SlideScene):
         
         benefits = Group(
             Tex("$\\bullet$ Physically reasonable"),
-            Tex("$\\bullet$ Numerically stable")
+            Tex("$\\bullet$ Numerically stable ", "$\\rightarrow$ Important for FEM")
         ).arrange(DOWN,aligned_edge=LEFT).align_to(polyconvex, LEFT+UP).shift(DOWN+0.3*RIGHT)
         self.play(Write(benefits[0]))
         self.slide_break()
-        self.play(Write(benefits[1]))
+        self.play(Write(benefits[1][0]))
+        self.slide_break()
+        self.play(Write(benefits[1][1]))
         self.slide_break()
         self.play(FadeOut(benefits))
+        self.play(FadeOut(polyconvex))
+
+        self.slide_break()
+        NR = Tex("Newton-Raphson iterations").move_to(2.2*UP)
+        self.play(Write(NR))
+        self.slide_break()
+
+        fun1  = lambda x: 0.2*np.exp(x)-0.25
+        dfun1 = lambda x: 0.2*np.exp(x)
+        fun2  = lambda x: (1.2*x-0.5)**3-1.5*(1.2*x-0.5)**2+0.7
+        dfun2 = lambda x: 3*1.2*(1.2*x-0.5)**2 - 2*1.5*1.2*(1.2*x-0.5)
+        axis1 = Axes([0,2.2], [0,1], x_length=8, axis_config={"include_ticks":False}).scale(0.5).shift(DOWN)
+        xlabel = MathTex("x").move_to(axis1.coords_to_point(2.35,0))
+        flabel = MathTex("\mathbf{f}(x)").move_to(axis1.coords_to_point(0,1.15))
+        title = Tex("Convex").move_to(axis1.coords_to_point(1,1.25)).set_color(YELLOW)
+        x = np.linspace(-0.5,1.8,20)
+        y = fun1(x)
+        graph = axis1.plot_line_graph(x, y, add_vertex_dots=False)
+        self.play(Create(axis1))
+        self.play(FadeIn(xlabel, flabel, title))
+        self.slide_break()
+        self.play(Create(graph))
+        self.slide_break()
+
+        
+        xval = 1.7
+        x0label = MathTex("x_0").move_to(axis1.coords_to_point(xval, -0.2))
+        yprev = None
+        for i in range(4):
+            x = Dot(axis1.coords_to_point(xval,0))
+            y = Dot(axis1.coords_to_point(xval, fun1(xval)))
+            line1 = Line(x,y)
+            xval = xval - fun1(xval)/dfun1(xval)
+            line2 = Line(y, axis1.coords_to_point(xval,0))
+            self.play(FadeIn(x0label), Create(x), run_time=0.6)
+            self.play(FadeOut(yprev), run_time=0.3)
+            self.play(ShowPassingFlash(line1), run_time=0.6)
+            self.play(Create(y), run_time=0.3)
+            self.play(FadeOut(x), FadeOut(x0label), run_time=0.3)
+            self.play(ShowPassingFlash(line2), run_time=0.6)
+            yprev = y
+            x0label = None
+
+        self.wait()
+        self.slide_break()
+        self.play(*[obj.animate.shift(3*LEFT) for obj in [axis1, graph, xlabel, flabel, title, yprev]])
+
+        axis2 = Axes([0,2.2], [0,1], x_length=8, axis_config={"include_ticks":False}).scale(0.5).shift(DOWN+3*RIGHT)
+        xlabel2 = MathTex("x").move_to(axis2.coords_to_point(2.35,0))
+        flabel2 = MathTex("\mathbf{g}(x)").move_to(axis2.coords_to_point(0,1.15))
+        title2 = Tex("Non-convex").move_to(axis2.coords_to_point(1.2,1.25)).set_color(YELLOW)
+        x = np.linspace(-0.5,1.8,20)
+        y = fun2(x)
+        graph2 = axis2.plot_line_graph(x, y, add_vertex_dots=False)
+        self.play(Create(axis2))
+        self.play(FadeIn(xlabel2, flabel2, title2))
+        self.slide_break()
+        self.play(Create(graph2))
+        self.slide_break()
+
+        xval = 1.7
+        x0label = MathTex("x_0").move_to(axis2.coords_to_point(xval, -0.2))
+        yprev2 = None
+        for i in range(6):
+            x = Dot(axis2.coords_to_point(xval,0))
+            y = Dot(axis2.coords_to_point(xval, fun2(xval)))
+            line1 = Line(x,y)
+            xval = xval - fun2(xval)/dfun2(xval)
+            line2 = Line(y, axis2.coords_to_point(xval,0))
+            self.play(FadeIn(x0label), Create(x), run_time=0.6)
+            self.play(FadeOut(yprev2), run_time=0.3)
+            self.play(ShowPassingFlash(line1), run_time=0.6)
+            self.play(Create(y), run_time=0.3)
+            self.play(FadeOut(x), FadeOut(x0label), run_time=0.3)
+            self.play(ShowPassingFlash(line2), run_time=0.6)
+            yprev2 = y
+            x0label = None
+        
+        self.slide_break()
+        self.play(FadeOut(axis1, graph, xlabel, flabel, title, yprev, axis2, graph2, xlabel2, flabel2, title2, yprev2, NR))
+        self.slide_break()
+        self.play(FadeIn(polyconvex))
 
         workarounds = Group(
-            Tex("$\\bullet$ Ignored"),
-            Tex("$\\bullet$ Convexity in $\mathbf{C}$?"),
-            Tex("$\\bullet$ Numerical approximations")
+            Tex(r"$\bullet$ Ignored"),
+            Tex(r"$\bullet$ Convexity in $\mathbf{C}$?"),
+            Tex(r"$\bullet$ Numerical approximations")
         ).arrange(DOWN,aligned_edge=LEFT).align_to(polyconvex, LEFT+UP).shift(DOWN+0.3*RIGHT)
+        unfit = Tex(r"$\rightarrow$ Unfit for FEM").align_to(workarounds, LEFT+DOWN).shift(DOWN+0.3*LEFT)
         self.slide_break()
         self.play(Write(workarounds[0]))
         self.slide_break()
@@ -107,7 +192,9 @@ class Intro(SlideScene):
         self.slide_break()
         self.play(Write(workarounds[2]))
         self.slide_break()
-        self.play(FadeOut(workarounds, polyconvex))
+        self.play(Write(unfit))
+        self.slide_break()
+        self.play(FadeOut(workarounds, polyconvex, unfit))
         self.slide_break()
 
         canwepoly = Tex("Can we guarantee ", "polyconvexity", " in a data-driven framework?")
@@ -1167,7 +1254,7 @@ class Results_p3(SlideScene):
         self.play(ApplyWave(labels[4]))
         self.play(*[FadeOut(obj) for obj in [*mincells, av_min, tbl, tbl_label, heading]])
 
-class FEM(SlideScene):
+class FEM_p1(SlideScene):
     def construct(self):
         self.play(FadeIn(toc))
         self.slide_break()
@@ -1175,81 +1262,140 @@ class FEM(SlideScene):
         heading = toc[4].copy().move_to(ORIGIN).scale(1.25).to_corner(UP)
         self.play(FadeOut(toc), ReplacementTransform(toc[4],heading))
         self.slide_break()
-
-        simulia=SVGMobject("3ds_logo_short.svg").shift(LEFT*3)
-        abaqus = Tex(r"ABAQUS \\ UANISOHYPER").next_to(simulia,RIGHT)
-        abaqus = Group(
-            Tex("ABAQUS", font_size=96),
-            Tex("UANISOHYPER", font_size=80)
-        ).arrange(DOWN,aligned_edge=LEFT,buff=0.3).next_to(simulia,RIGHT)
-        self.play(Write(simulia), Write(abaqus[0]), Write(abaqus[1]))
+        twoDfem = Tex("Custom 2D FE solver").move_to(2.2*UP)
+        self.play(Write(twoDfem))
         self.slide_break()
-        self.play(FadeOut(simulia), FadeOut(abaqus))
+        uni = SVGMobject("2DFEM/Uniaxial.svg").scale(2).move_to(3*LEFT+DOWN)
+        shr = SVGMobject("2DFEM/Shear.svg").scale(2).move_to(3*RIGHT+DOWN)
+        self.play(Write(uni), Write(shr))
         self.slide_break()
+        self.play(FadeOut(uni, shr, twoDfem))
 
-        cbar = SVGMobject("cbar_FEM.svg").to_edge(LEFT)
-
-        limits = [[0.00, 0.34], [0.00, 1.40], [0.00, 0.42], [0.00, 0.13], [0.00, 8.00]] #cranium max: 80.11
-        legend = Tex("$\sigma_1$ [MPa]").next_to(cbar)
-        lims = Group(
-            Tex(str(limits[0][1])),
-            Tex(str(limits[0][0]))
-        ).arrange(DOWN, aligned_edge=LEFT, buff=1.8).next_to(cbar)
-
-        self.play(Write(cbar))
-        self.play(Write(legend), Write(lims[0]), Write(lims[1]))
+        simulia=SVGMobject("3ds_logo_short.svg").scale(0.3).shift(LEFT*1.7+UP*2.2)
+        abaqus = Tex("ABAQUS", font_size=60).next_to(simulia, RIGHT)
+        self.play(Write(simulia), Write(abaqus))
         self.slide_break()
 
-        self.play(Unwrite(lims[0]), Unwrite(lims[1]))
-        lims = Group(
-            Tex(str(limits[1][1])),
-            Tex(str(limits[1][0]))
-        ).arrange(DOWN, aligned_edge=LEFT, buff=1.8).next_to(cbar)
-        self.slide_break()
-        self.play(Write(lims[0]), Write(lims[1]))
-        self.slide_break()
-
-        self.play(Unwrite(lims[0]), Unwrite(lims[1]))
-        lims = Group(
-            Tex(str(limits[2][1])),
-            Tex(str(limits[2][0]))
-        ).arrange(DOWN, aligned_edge=LEFT, buff=1.8).next_to(cbar)
-        self.slide_break()
-        self.play(Write(lims[0]), Write(lims[1]))
+        umat = Tex("UMAT").move_to(LEFT*3.5+DOWN).scale(0.6)
+        umatbox = Rectangle(height=1.2, width=3.0).move_to(umat)
+        uani = Tex("UANISOHYPER").move_to(RIGHT*3.5+DOWN).scale(0.6)
+        uanibox = Rectangle(height=1.2, width=3.0).move_to(uani)
+        self.play(Write(umat), Write(umatbox))
+        self.play(Write(uani), Write(uanibox))
         self.slide_break()
 
-        self.play(Unwrite(lims[0]), Unwrite(lims[1]))
-        lims = Group(
-            Tex(str(limits[3][1])),
-            Tex(str(limits[3][0]))
-        ).arrange(DOWN, aligned_edge=LEFT, buff=1.8).next_to(cbar)
+        umatinarr = Arrow(start=umatbox.get_top()+[0,1,0], end=umatbox.get_top())
+        umatin = Group(
+            Tex("$\mathbf{F}_t$"),
+            Tex("$\mathbf{F}_{t+\Delta t}$"),
+            Tex("Material properties")
+        ).arrange(DOWN, buff=0.2).scale(0.8).next_to(umatinarr, UP)
+        self.play(Create(umatinarr), Write(umatin[0]), Write(umatin[1]), Write(umatin[2]))
         self.slide_break()
-        self.play(Write(lims[0]), Write(lims[1]))
+        
+        umatoutarr = Arrow(start=umatbox.get_bottom(), end=umatbox.get_bottom()+[0,-1,0])
+        umatout = Group(
+            Tex("Stress (Cauchy)"),
+            Tex("Tangent stiffness matrix")
+        ).arrange(DOWN, buff=0.2).scale(0.8).next_to(umatoutarr, DOWN)
+        self.play(Create(umatoutarr), Write(umatout[0]), Write(umatout[1]))
         self.slide_break()
 
-        # Fade Out the colorbar for the introduction of the scalp FEM
-        self.play(FadeOut(lims), FadeOut(cbar), FadeOut(legend))
+        uaniinarr = Arrow(start=uanibox.get_top()+[0,1,0], end=uanibox.get_top())
+        uaniin = Group(
+            Tex("Invariants"),
+            Tex("Number of fiber families"),
+            Tex("Material properties")
+        ).arrange(DOWN, buff=0.2).scale(0.8).next_to(uaniinarr, UP)
+        self.play(Create(uaniinarr), Write(uaniin[0]), Write(uaniin[1]), Write(uaniin[2]))
         self.slide_break()
 
-        pre  = ImageMobject('surg_pre.jpg').scale(0.2).shift(LEFT*2)
-        arr = MathTex(r"\rightarrow").next_to(pre)
-        post = ImageMobject('surg_post.jpg').scale(0.2).next_to(arr)
-        self.play(FadeIn(pre))
-        self.play(FadeIn(arr))
-        self.play(FadeIn(post))
+        uanioutarr = Arrow(start=uanibox.get_bottom(), end=uanibox.get_bottom()+[0,-1,0])
+        uaniout = MathTex("\Psi, \, \, \partial \Psi / \partial \\bar{I}_i, \, \
+        \, \partial^2 \Psi / \partial \\bar{I}_i \\bar{I}_j").scale(0.8).next_to(uanioutarr, DOWN)
+        self.play(Create(uanioutarr), Write(uaniout))
         self.slide_break()
-        self.play(FadeOut(pre), FadeOut(post), FadeOut(arr))
+
+        self.play(FadeOut(simulia, abaqus, umat, umatbox, uani, uanibox, 
+                          umatin, umatinarr, umatoutarr, umatout,
+                          uaniin, uaniinarr, uanioutarr, uaniout))
+        self.slide_break()
 
 
-        self.slide_break()
-        lims = Group(
-            Tex(str(limits[4][1]), r" $\uparrow$"),
-            Tex(str(limits[4][0]))
-        ).arrange(DOWN, aligned_edge=LEFT, buff=1.8).next_to(cbar)
-        self.play(FadeIn(lims), FadeIn(cbar), FadeIn(legend))
+        # cbar = SVGMobject("cbar_FEM.svg").to_edge(LEFT)
 
+        # limits = [[0.00, 0.34], [0.00, 1.40], [0.00, 0.42], [0.00, 0.13], [0.00, 8.00]] #cranium max: 80.11
+        # legend = Tex("$\sigma_1$ [MPa]").next_to(cbar)
+        # lims = Group(
+        #     Tex(str(limits[0][1])),
+        #     Tex(str(limits[0][0]))
+        # ).arrange(DOWN, aligned_edge=LEFT, buff=1.8).next_to(cbar)
+
+        # self.play(Write(cbar))
+        # self.play(Write(legend), Write(lims[0]), Write(lims[1]))
+        # self.slide_break()
+
+        # self.play(Unwrite(lims[0]), Unwrite(lims[1]))
+        # lims = Group(
+        #     Tex(str(limits[1][1])),
+        #     Tex(str(limits[1][0]))
+        # ).arrange(DOWN, aligned_edge=LEFT, buff=1.8).next_to(cbar)
+        # self.slide_break()
+        # self.play(Write(lims[0]), Write(lims[1]))
+        # self.slide_break()
+
+        # self.play(Unwrite(lims[0]), Unwrite(lims[1]))
+        # lims = Group(
+        #     Tex(str(limits[2][1])),
+        #     Tex(str(limits[2][0]))
+        # ).arrange(DOWN, aligned_edge=LEFT, buff=1.8).next_to(cbar)
+        # self.slide_break()
+        # self.play(Write(lims[0]), Write(lims[1]))
+        # self.slide_break()
+
+        # self.play(Unwrite(lims[0]), Unwrite(lims[1]))
+        # lims = Group(
+        #     Tex(str(limits[3][1])),
+        #     Tex(str(limits[3][0]))
+        # ).arrange(DOWN, aligned_edge=LEFT, buff=1.8).next_to(cbar)
+        # self.slide_break()
+        # self.play(Write(lims[0]), Write(lims[1]))
+        # self.slide_break()
+
+        # # Fade Out the colorbar for the introduction of the scalp FEM
+        # self.play(FadeOut(lims), FadeOut(cbar), FadeOut(legend))
+        # self.slide_break()
+
+        # pre  = ImageMobject('surg_pre.jpg').scale(0.2).shift(LEFT*2)
+        # arr = MathTex(r"\rightarrow").next_to(pre)
+        # post = ImageMobject('surg_post.jpg').scale(0.2).next_to(arr)
+        # self.play(FadeIn(pre))
+        # self.play(FadeIn(arr))
+        # self.play(FadeIn(post))
+        # self.slide_break()
+        # self.play(FadeOut(pre), FadeOut(post), FadeOut(arr))
+
+
+        # self.slide_break()
+        # lims = Group(
+        #     Tex(str(limits[4][1]), r" $\uparrow$"),
+        #     Tex(str(limits[4][0]))
+        # ).arrange(DOWN, aligned_edge=LEFT, buff=1.8).next_to(cbar)
+        # self.play(FadeIn(lims), FadeIn(cbar), FadeIn(legend))
+
+        # self.slide_break()
+        # self.play(FadeOut(lims), FadeOut(cbar), FadeOut(legend), FadeOut(heading))
+
+class FEM_p3(SlideScene):
+    def construct(self):
+        heading = toc[4].copy().move_to(ORIGIN).scale(1.25).to_corner(UP)
+        self.add(heading)
+
+        convax = SVGMobject('convergence_axes.svg').scale(3).shift(0.5*DOWN)
+        conv = SVGMobject('convergence.svg').scale(3).shift(0.5*DOWN)
+        self.play(Write(convax))
+        self.play(Write(conv))
         self.slide_break()
-        self.play(FadeOut(lims), FadeOut(cbar), FadeOut(legend), FadeOut(heading))
 
 class Conc(SlideScene):
     def construct(self):
@@ -1261,19 +1407,37 @@ class Conc(SlideScene):
         self.slide_break()
 
         conclusions = Group(
-            Tex(r"$\cdot$ Polyconvex strain energy functions with Neural ODEs"),
-            Tex(r"$\cdot$ Superior predictive capabilities when \\ trained with experimental data"),
-            Tex(r"$\cdot$ Implementation in Abaqus"),
-            Tex(r"$\cdot$ All data, source code and FE models available at")
+            Tex("$\\bullet$ Guaranteed polyconvexity using Neural ODEs"),
+            Tex("$\\bullet$ Superior predictive capabilities when trained \\\ with experimental data"),
+            Tex("$\\bullet$ Implementation in Abaqus")
         ).arrange(DOWN,aligned_edge=LEFT,buff=0.35).shift(UP)
-        link = Tex(r"\underline{https://github.com/tajtac/NODE\_v2}").next_to(conclusions, DOWN).shift(DOWN*0.5)
         for i in range(len(conclusions)):
             self.slide_break()
-            self.play(Write(conclusions[i]))
-        self.play(Write(link))
+            self.play(FadeIn(conclusions[i], shift=0.5*UP))
         self.slide_break()
 
-        self.play(FadeOut(heading), FadeOut(conclusions), FadeOut(link))
+        ideas = Group(
+            Tex("Major ideas:"),
+            Tex("$\\circ$ Realizing that polyconvexity is needed"),
+            Tex("$\\circ$ Knowing what classes of functions are polyconvex"),
+            Tex("$\\circ$ Realizing that N-ODEs can be used to build convex functions in one variable"),
+            Tex("$\\circ$ Making sure that the model can capture basic closed form models exactly"),
+            Tex("$\\circ$ Knowing how to handle compressible and nearly incompressible cases"),
+            Tex("$\\odot$ To make sure that the model is indeed hyperelastic, i.e., the derivative functions do come from the same energy function"),
+            Tex("$\\odot$ Accounting for interactions between invariants via the $\Psi_{I_i+I_j}(I_i + I_j)$ terms"),
+            Tex("$\\bullet$ Ensuring stress-free state when there is no deformation"),
+            Tex("$\\bullet$ Training in the log space to capture response in small deformations"),
+            Tex("$\\bullet$ Realizing the need for 64 bit numerical precision")
+        ).arrange(DOWN, aligned_edge=LEFT,buff=0.35).scale(0.7).shift(0.5*DOWN)
+
+        self.play(FadeOut(conclusions))
+
+        for i in range(len(ideas)):
+            self.slide_break()
+            self.play(FadeIn(ideas[i], shift=0.5*LEFT))
+        self.slide_break()
+
+        self.play(FadeOut(heading, ideas))
         twitter_logo = SVGMobject("Twitter-logo.svg").scale(0.25).shift(LEFT)
         twitter_addr = Text("@tajtac").next_to(twitter_logo).shift(0.05*DOWN)
         self.play(Write(twitter_logo))
