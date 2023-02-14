@@ -11,8 +11,8 @@ inline: false
 
 Below are some pictures from the event.
 
-![Melosh Pic 4](../assets/img/melosh_pic_4.jpeg)
-![Melosh Pic 1](../assets/img/melosh_pic_1.jpeg)
-![Melosh Pic 2](../assets/img/melosh_pic_2.jpeg)
-![Melosh Pic 3](../assets/img/melosh_pic_3.jpeg)
+![Melosh Pic 4](assets/img/melosh_pic_4.jpeg)
+![Melosh Pic 1](assets/img/melosh_pic_1.jpeg)
+![Melosh Pic 2](assets/img/melosh_pic_2.jpeg)
+![Melosh Pic 3](assets/img/melosh_pic_3.jpeg)
 
