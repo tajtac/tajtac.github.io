@@ -48,10 +48,10 @@
       institution: TUBITAK Space Technologies Research Institute, Ankara, Turkey
       year: 2017 - 2018
       description:
-        - title: Developed two engineering software packages for 
+        - title: "Developed two engineering software packages using Visual Basic and MATLAB:"
           contents:
-            - Conceptual aircraft design and 
-            - Prediction of failure modes of composite materials using Visual Basic and MATLAB. 
+            - Aircraft conceptual design
+            - Prediction of failure modes of composite materials 
         - The packages received praise for being user friendly and responsive.
 
 - title: Honors and Awards
