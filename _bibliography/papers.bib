@@ -89,21 +89,21 @@
   pdf={biopolymer_gels.pdf},
 }
 
-@article{tac_benchmark_2023,
-  doi = {10.48550/ARXIV.2301.10714},
-  url = {https://arxiv.org/abs/2301.10714},
-  author = {Tac, Vahidullah and Linka, Kevin and Sahli-Costabal, Francisco and Kuhl, Ellen and Tepole, Adrian Buganza},
-  keywords = {Computational Engineering, Finance, and Science (cs.CE), FOS: Computer and information sciences, FOS: Computer and information sciences},
-  title = {Benchmarks for physics-informed data-driven hyperelasticity},
-  abstract = {Data-driven methods have changed the way we understand and model materials. However, while providing unmatched flexibility, these methods have limitations such as reduced capacity to extrapolate, overfitting, and violation of physics constraints. Recent developments have led to modeling frameworks that automatically satisfy these requirements. Here we review, extend, and compare three promising data-driven methods: Constitutive Artificial Neural Networks (CANN), Input Convex Neural Networks (ICNN), and Neural Ordinary Differential Equations (NODE). Our formulation expands the strain energy potentials in terms of sums of convex non-decreasing functions of invariants and linear combinations of these. The expansion of the energy is shared across all three methods and guarantees the automatic satisfaction of objectivity and polyconvexity, essential within the context of hyperelasticity. To benchmark the methods, we train them against rubber and skin stress-strain data. All three approaches capture the data almost perfectly, without overfitting, and have some capacity to extrapolate. Interestingly, the methods find different energy functions even though the prediction on the stress data is nearly identical. The most notable differences are observed in the second derivatives, which could impact performance of numerical solvers. On the rich set of data used in these benchmarks, the models show the anticipated trade-off between number of parameters and accuracy. Overall, CANN, ICNN and NODE retain the flexibility and accuracy of other data-driven methods without compromising on the physics. These methods are thus ideal options to model arbitrary hyperelastic material behavior.},
-  journal = {arXiv preprint},
-  year = {2023},
-  copyright = {arXiv.org perpetual, non-exclusive license},
-  bibtex_show={true},
-  preview={benchmark2.png},
-  pdf={benchmark.pdf},
-}
 
+@article{tacBenchmarkingPhysicsinformedFrameworks2023,
+  title = {Benchmarking Physics-Informed Frameworks for Data-Driven Hyperelasticity},
+  author = {Ta{\c c}, Vahidullah and Linka, Kevin and {Sahli-Costabal}, Francisco and Kuhl, Ellen and Tepole, Adrian Buganza},
+  year = {2023},
+  month = jun,
+  journal = {Computational Mechanics},
+  issn = {0178-7675, 1432-0924},
+  doi = {10.1007/s00466-023-02355-2},
+  urldate = {2023-06-04},
+  langid = {english},
+  url = {https://link.springer.com/article/10.1007/s00466-023-02355-2},
+  preview={benchmark2.png},
+  pdf={benchmark_CM.pdf},
+}
 
 @article{TAC2023116046,
   title = {Data-driven anisotropic finite viscoelasticity using neural ordinary differential equations},
