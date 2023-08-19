@@ -249,8 +249,8 @@ display_tags: ['formatting', 'images', 'links', 'math', 'code'] # this tags will
 # -----------------------------------------------------------------------------
 
 scholar:
-  last_name: Tac
-  first_name: Vahidullah
+  last_name: Tac, Taç, Taj
+  first_name: Vahidullah, Waheedullah
 
   style: apa
   locale: en

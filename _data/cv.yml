@@ -57,6 +57,8 @@
 - title: Honors and Awards
   type: time_table
   contents:
+    - year: 2023
+        - Travel award from SES to attend the Inaugural SES Future Faculty Symposium in 2023.
     - year: 2022
       items: 
         - <a href="https://cee.duke.edu/about/awards-honors/melosh-medal">Robert J. Melosh Medal</a> for best student paper in computational solid mechanics, Duke University
