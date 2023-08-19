@@ -3,7 +3,7 @@ layout: page
 permalink: /repositories/
 title: code
 description: I provide all of my code, models and data for my PhD work on github.
-nav: true
+nav: false
 nav_order: 3
 ---
 
