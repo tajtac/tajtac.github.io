@@ -2,11 +2,14 @@
 layout: page
 permalink: /teaching/
 title: teaching
-description: Materials for courses you taught. Replace this text with your description.
-nav: false
-nav_order: 5
+description: Courses I have taught.
+nav: true
+nav_order: 3
 ---
 
-For now, this page is assumed to be a static description of your courses. You can convert it to a collection similar to `_projects/` so that you can have a dedicated page for each course.
+## ME 270 - Basic Mechanics I: Statics
+## Purdue University - Dept. of Mechanical Engineering
+## Lecturer
+Course contents: Vector operations, forces and couples. Free body diagrams, equilibrium of a particle and of rigid bodies. Distributed forces. Centers of gravity and centroids. Friction. Trusses, frames, and machines. Internal reactions resulting from axial, shear, torsional, and bending loading. Stress and strain analyses and elementary failure criteria. 
 
-Organize your courses by years, topics, or universities, however you like!
+Taught on Spring 2023 (partially) and Fall 2023. 
