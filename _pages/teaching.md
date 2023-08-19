@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: page_no_header
 permalink: /teaching/
 title: teaching
 # description: Courses I have taught.
