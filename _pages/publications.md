@@ -1,5 +1,5 @@
 ---
-layout: page_no_header
+layout: page
 permalink: /publications/
 title: publications
 description: publications in reversed chronological order. 
