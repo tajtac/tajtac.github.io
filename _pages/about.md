@@ -2,7 +2,7 @@
 layout: about
 title: about
 permalink: /
-subtitle: `I am currently on the academic job market and seek full-time positions with start dates in Fall 2024.`
+subtitle: I am currently on the academic job market and seek full-time positions with start dates in Fall 2024.
 
 profile:
   align: right
