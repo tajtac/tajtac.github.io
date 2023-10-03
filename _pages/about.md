@@ -2,7 +2,7 @@
 layout: about
 title: about
 permalink: /
-subtitle: PhD candidate at <a href='http://www.purdue.edu'>Purdue</a> working on applying <b> machine learning </b> methods to <b>mechanics of soft materials</b>, co-advised by [Dr. Adrian Buganza Tepole](https://engineering.purdue.edu/ME/People/OME/Areas/ptProfile?resource_id=132124&group_id=11989) and [Dr. Ilias Bilionis](https://engineering.purdue.edu/ME/People/ptProfile?resource_id=113500).
+subtitle: PhD candidate at <a href='http://www.purdue.edu'>Purdue</a> working on applying <b> machine learning </b> methods to <b>mechanics of soft materials</b>, co-advised by Dr. Adrian Buganza Tepole and Dr. Ilias Bilionis.
 
 profile:
   align: right
