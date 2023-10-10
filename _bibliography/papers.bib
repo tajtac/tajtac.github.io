@@ -21,6 +21,23 @@
   url = {https://iopscience.iop.org/article/10.1088/1757-899X/295/1/012001/meta},
 }
 
+
+@article{tacDatadrivenTissueMechanics2022,
+  title = {Data-Driven Tissue Mechanics with Polyconvex Neural Ordinary Differential Equations},
+  author = {Tac, Vahidullah and Costabal, Francisco Sahli and Tepole, Adrian B},
+  abstract = {Data-driven methods are becoming an essential part of computational mechanics due to their advantages over traditional material modeling. Deep neural networks are able to learn complex material response without the constraints of closed-form models. However, data-driven approaches do not a priori satisfy physics-based mathematical requirements such as polyconvexity, a condition needed for the existence of minimizers for boundary value problems in elasticity. In this study, we use a recent class of neural networks, neural ordinary differential equations (N-ODEs), to develop data-driven material models that automatically satisfy polyconvexity of the strain energy. We take advantage of the properties of ordinary differential equations to create monotonic functions that approximate the derivatives of the strain energy with respect to deformation invariants. The monotonicity of the derivatives guarantees the convexity of the energy. The N-ODE material model is able to capture synthetic data generated from closed-form material models, and it outperforms conventional models when tested against experimental data on skin, a highly nonlinear and anisotropic material. We also showcase the use of the N-ODE material model in finite element simulations of reconstructive surgery. The framework is general and can be used to model a large class of materials, especially biological soft tissues. We therefore expect our methodology to further enable data-driven methods in computational mechanics.},
+  year = {2022},
+  journal = {Computer Methods in Applied Mechanics and Engineering},
+  volume = {398},
+  pages = {18},
+  doi = {10.1016/j.cma.2022.115248},
+  langid = {english},
+  bibtex_show={true},
+  preview={cranium.png},
+  pdf={node.pdf},
+  url = {https://www.sciencedirect.com/science/article/pii/S0045782522003838},
+}
+
 @article{tacDatadrivenModelingMechanical2022,
   title = {Data-Driven Modeling of the Mechanical Behavior of Anisotropic Soft Biological Tissue},
   author = {Tac, Vahidullah and Sree, Vivek D. and Rausch, Manuel K. and Tepole, Adrian B.},
@@ -35,26 +52,11 @@
   doi = {10.1007/s00366-022-01733-3},
   langid = {english},
   bibtex_show={true},
-  preview={torsion.gif},
+  preview={exp.png},
   pdf={nnmat.pdf},
   url = {https://link.springer.com/article/10.1007/s00366-022-01733-3},
 }
 
-@article{tacDatadrivenTissueMechanics2022,
-  title = {Data-Driven Tissue Mechanics with Polyconvex Neural Ordinary Differential Equations},
-  author = {Tac, Vahidullah and Costabal, Francisco Sahli and Tepole, Adrian B},
-  abstract = {Data-driven methods are becoming an essential part of computational mechanics due to their advantages over traditional material modeling. Deep neural networks are able to learn complex material response without the constraints of closed-form models. However, data-driven approaches do not a priori satisfy physics-based mathematical requirements such as polyconvexity, a condition needed for the existence of minimizers for boundary value problems in elasticity. In this study, we use a recent class of neural networks, neural ordinary differential equations (N-ODEs), to develop data-driven material models that automatically satisfy polyconvexity of the strain energy. We take advantage of the properties of ordinary differential equations to create monotonic functions that approximate the derivatives of the strain energy with respect to deformation invariants. The monotonicity of the derivatives guarantees the convexity of the energy. The N-ODE material model is able to capture synthetic data generated from closed-form material models, and it outperforms conventional models when tested against experimental data on skin, a highly nonlinear and anisotropic material. We also showcase the use of the N-ODE material model in finite element simulations of reconstructive surgery. The framework is general and can be used to model a large class of materials, especially biological soft tissues. We therefore expect our methodology to further enable data-driven methods in computational mechanics.},
-  year = {2022},
-  journal = {Computer Methods in Applied Mechanics and Engineering},
-  volume = {398},
-  pages = {18},
-  doi = {10.1016/j.cma.2022.115248},
-  langid = {english},
-  bibtex_show={true},
-  preview={cranium2.gif},
-  pdf={node.pdf},
-  url = {https://www.sciencedirect.com/science/article/pii/S0045782522003838},
-}
 
 @article{tacMicromechanicalModellingCarbon2019,
   title = {Micromechanical Modelling of Carbon Nanotube Reinforced Composite Materials with a Functionally Graded Interphase},
@@ -74,6 +76,8 @@
   pdf={micromech.pdf},
   url = {http://journals.sagepub.com/doi/10.1177/0021998319857126},
 }
+
+
 
 @article{lengPredictingMechanicalProperties2021,
   title = {Predicting the Mechanical Properties of Biopolymer Gels Using Neural Networks Trained on Discrete Fiber Network Data},
@@ -95,20 +99,16 @@
 }
 
 
-@article{tacBenchmarkingPhysicsinformedFrameworks2023,
-  title = {Benchmarking Physics-Informed Frameworks for Data-Driven Hyperelasticity},
-  author = {Taç, Vahidullah and Linka, Kevin and {Sahli-Costabal}, Francisco and Kuhl, Ellen and Tepole, Adrian Buganza},
+@article{tacGenerativeHyperelasticityPhysicsInformed,
+  title = {Generative Hyperelasticity with Physics-Informed Probabilistic Diffusion Fields},
+  author = {Taç, Vahidullah and Rausch, Manuel K and Bilionis, Ilias and {Sahli Costabal}, Francisco and Tepole, Adrian Buganza},
   year = {2023},
-  month = jun,
-  journal = {Computational Mechanics},
-  issn = {0178-7675, 1432-0924},
-  doi = {10.1007/s00466-023-02355-2},
-  urldate = {2023-06-04},
-  langid = {english},
-  url = {https://link.springer.com/article/10.1007/s00466-023-02355-2},
-  preview={benchmark2.png},
-  pdf={benchmark_CM.pdf},
-  abstract = {Data-driven methods have changed the way we understand and model materials. However, while providing unmatched flexibility, these methods have limitations such as reduced capacity to extrapolate, overfitting, and violation of physics constraints. Recently, frameworks that automatically satisfy these requirements have been proposed. Here we review, extend, and compare three promising data-driven methods: Constitutive Artificial Neural Networks (CANN), Input Convex Neural Networks (ICNN), and Neural Ordinary Differential Equations (NODE). Our formulation expands the strain energy potentials in terms of sums of convex non-decreasing functions of invariants and linear combinations of these. The expansion of the energy is shared across all three methods and guarantees the automatic satisfaction of objectivity, material symmetries, and polyconvexity, essential within the context of hyperelasticity. To benchmark the methods, we train them against rubber and skin stress–strain data. All three approaches capture the data almost perfectly, without overfitting, and have some capacity to extrapolate. This is in contrast to unconstrained neural networks which fail to make physically meaningful predictions outside the training range. Interestingly, the methods find different energy functions even though the prediction on the stress data is nearly identical. The most notable differences are observed in the second derivatives, which could impact performance of numerical solvers. On the rich data used in these benchmarks, the models show the anticipated trade-off between number of parameters and accuracy. Overall, CANN, ICNN and NODE retain the flexibility and accuracy of other data-driven methods without compromising on the physics. These methods are ideal options to model arbitrary hyperelastic material behavior.},
+  url = {https://arxiv.org/abs/2310.03745},
+  journal = {arXiv},
+  pdf={diffusion.pdf},
+  preview={diffusion.png},
+  bibtex_show={true},
+  doi = {https://doi.org/10.48550/arXiv.2310.03745},
 }
 
 @article{TAC2023116046,
@@ -129,14 +129,20 @@
   selected={true},
 }
 
-@article{tacGenerativeHyperelasticityPhysicsInformed,
-  title = {Generative Hyperelasticity with Physics-Informed Probabilistic Diffusion Fields},
-  author = {Taç, Vahidullah and Rausch, Manuel K and Bilionis, Ilias and {Sahli Costabal}, Francisco and Tepole, Adrian Buganza},
+@article{tacBenchmarkingPhysicsinformedFrameworks2023,
+  title = {Benchmarking Physics-Informed Frameworks for Data-Driven Hyperelasticity},
+  author = {Taç, Vahidullah and Linka, Kevin and {Sahli-Costabal}, Francisco and Kuhl, Ellen and Tepole, Adrian Buganza},
   year = {2023},
-  url = {https://arxiv.org/abs/2310.03745},
-  journal = {arXiv},
-  pdf={diffusion.pdf},
-  preview={diffusion.png},
-  bibtex_show={true},
-  doi = {https://doi.org/10.48550/arXiv.2310.03745},
+  month = jun,
+  journal = {Computational Mechanics},
+  issn = {0178-7675, 1432-0924},
+  doi = {10.1007/s00466-023-02355-2},
+  urldate = {2023-06-04},
+  langid = {english},
+  url = {https://link.springer.com/article/10.1007/s00466-023-02355-2},
+  preview={benchmark2.png},
+  pdf={benchmark_CM.pdf},
+  abstract = {Data-driven methods have changed the way we understand and model materials. However, while providing unmatched flexibility, these methods have limitations such as reduced capacity to extrapolate, overfitting, and violation of physics constraints. Recently, frameworks that automatically satisfy these requirements have been proposed. Here we review, extend, and compare three promising data-driven methods: Constitutive Artificial Neural Networks (CANN), Input Convex Neural Networks (ICNN), and Neural Ordinary Differential Equations (NODE). Our formulation expands the strain energy potentials in terms of sums of convex non-decreasing functions of invariants and linear combinations of these. The expansion of the energy is shared across all three methods and guarantees the automatic satisfaction of objectivity, material symmetries, and polyconvexity, essential within the context of hyperelasticity. To benchmark the methods, we train them against rubber and skin stress–strain data. All three approaches capture the data almost perfectly, without overfitting, and have some capacity to extrapolate. This is in contrast to unconstrained neural networks which fail to make physically meaningful predictions outside the training range. Interestingly, the methods find different energy functions even though the prediction on the stress data is nearly identical. The most notable differences are observed in the second derivatives, which could impact performance of numerical solvers. On the rich data used in these benchmarks, the models show the anticipated trade-off between number of parameters and accuracy. Overall, CANN, ICNN and NODE retain the flexibility and accuracy of other data-driven methods without compromising on the physics. These methods are ideal options to model arbitrary hyperelastic material behavior.},
 }
+
+
