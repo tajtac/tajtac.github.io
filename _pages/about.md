@@ -6,7 +6,7 @@ subtitle: I am currently on the academic job market and seek full-time positions
 
 profile:
   align: right
-  image: vahid_pic2.heic
+  image: vahid_pic2.jpg
   image_circular: false # crops the image to make it circular
   # address: >
   #   <p>307 Montefiore St.</p>
