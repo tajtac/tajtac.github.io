@@ -1,0 +1,16 @@
+---
+layout: page
+permalink: /videos/
+title: videos
+description: Recorded presentations and explanatory animations
+nav: true
+nav_order: 4
+---
+
+#### Presentation in WCCM 2022
+<iframe width="560" height="315" src="https://www.youtube.com/embed/tblSfNW1qhM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
+#### Anisotropic finite viscoelasticity with Neural ODEs (Paper explanation animation)
+<video width="560" height="315" controls>
+  <source src="assets/vid/nvisco.mp4" type="video/mp4">
+</video>
