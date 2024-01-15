@@ -3,7 +3,7 @@ layout: page
 permalink: /talks/
 title: video talks
 description: Recorded presentations and talks
-nav: true
+nav: false
 nav_order: 4
 ---
 
