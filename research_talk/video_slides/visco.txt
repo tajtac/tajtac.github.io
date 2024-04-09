@@ -1,0 +1,10 @@
+<p class="fragment" type='video' time_start=0 time_end=1.2500000000000013></p>
+<p class="fragment" type='video' time_start=1.2500000000000013 time_end=7.7499999999999805></p>
+<p class="fragment" type='video' time_start=7.7499999999999805 time_end=14.250000000000279></p>
+<p class="fragment" type='video' time_start=14.250000000000279 time_end=23.549999999999937></p>
+<p class="fragment" type='video' time_start=23.549999999999937 time_end=39.649999999999054></p>
+<p class="fragment" type='video' time_start=39.649999999999054 time_end=47.14999999999877></p>
+<p class="fragment" type='video' time_start=47.14999999999877 time_end=50.6499999999986></p>
+<p class="fragment" type='video' time_start=50.6499999999986 time_end=55.14999999999843></p>
+<p class="fragment" type='video' time_start=55.14999999999843 time_end=58.64999999999826></p>
+<p class="fragment" type='video' time_start=58.64999999999826 time_end=59.8999999999982></p>
