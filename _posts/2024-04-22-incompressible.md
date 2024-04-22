@@ -34,10 +34,10 @@ Eq. \eqref{eq_S} provides the most general form of the relationship between $$\m
 
 where $$p$$ is a pressure Lagrange multiplier which can be understood as a hydrostatic stress to resist compression, $$J=\det \mathbf{F}$$ is the volume change and $$\hat{\Psi}$$ is a \emph{distortional} energy function that depends on $$\mathbf{C}$$ only through the isochoric part of $$\mathbf{C}$$, i.e.,
 
-\begin{equation}
+\begin{aligned}
     \hat{\Psi}(\mathbf{C}) &= \Psi(\hat{\mathbf{C}}) \\
     \hat{\mathbf{C}} &= (\det \mathbf{C})^{-1/3}\mathbf{C} \, .
-\end{equation}
+\end{aligned}
 
 Using the relationship in Eq. \eqref{eq_S_incomp} requires determining the pressure $$p$$. In some special cases, such as biaxial deformation of a thin membrane under plane-stress conditions, $$p$$ can be determined from boundary conditions. However, this is not possible in general. Therefore, a \emph{nearly incompressible} approach is followed in most practical applications {% cite holzapfel2002nonlinear --collection external_references %}. In nearly incompressible hyperelasticity of soft tissue, the SEDF is constructed by adding a volumetric term to the distortional energy, i.e.,
 
@@ -62,4 +62,5 @@ with $$K$$ a bulk modulus parameter. When this form of $$\Psi_{\text{vol}}$$ is 
 The only task that remains ahead before we can model the behavior of a hyperelastic material is to specify a suitable form of $$\hat{\Psi}$$. $$\hat{\Psi}$$ has to satisfy a number of mathematical and physical constraints to be admissible. First and foremost, $$\hat{\Psi}$$ has to be \emph{objective}. Simply put, the principle of objectivity states that the stress in the material must be independent of the frame of reference. There are two widely used methods of satisfying this criterion: 1) using SEDFs that only depend on the principal (distortional) stretches, $$\hat{\lambda}_1, \hat{\lambda}_2, \hat{\lambda}_3$$ (square roots of the eigenvalues of $$\hat{\mathbf{C}}$$) {% cite lohr2022introduction ogden1997non --collection external_references %}, or 2) using SEDFs that only depend on the tensor invariants of $$\hat{\mathbf{C}}$$ {% cite ehret2007polyconvex --collection external_references %}. 
 
 
+## References
 {% bibliography --cited %}
