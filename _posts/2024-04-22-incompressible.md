@@ -28,11 +28,11 @@ The deformation gradient $$\mathbf{F}$$ contains information both about stretchi
     \Psi = \Psi(\mathbf{C}), \quad \mathbf{S} = \frac12 \frac{\partial \Psi(\mathbf{C})}{\partial \mathbf{C}} \, .
 \end{equation}
 
-> Note: A lot of people assume that Eq. \eqref{eq_S} is equivalent to Eq. \eqref{eq_def_hyperelasticity}, or that it can be readily obtained from it by multiplying both sides of \eqref{eq_def_hyperelasticity} by $$\mathbf{F}^{-1}$$, but that is not the case. The fundamental equation of hyperelasticity is Eq. \eqref{eq_def_hyperelasticity}. Eq. \eqref{eq_S} can be derived from Eq. \eqref{eq_def_hyperelasticity} <i>under certain conditions<i>. See {% cite bonetNONLINEARCONTINUUMMECHANICS1997 --collection external_references %} for more details.
+> Note: A lot of people assume that Eq. \eqref{eq_S} is equivalent to Eq. \eqref{eq_def_hyperelasticity}, or that it can be readily obtained from it by multiplying both sides of \eqref{eq_def_hyperelasticity} by $$\mathbf{F}^{-1}$$, but that is not the case. The fundamental equation of hyperelasticity is Eq. \eqref{eq_def_hyperelasticity}. Eq. \eqref{eq_S} can be derived from Eq. \eqref{eq_def_hyperelasticity} <i>under certain conditions</i>. See {% cite bonetNONLINEARCONTINUUMMECHANICS1997 --collection external_references %} for more details.
 
 
 ### Incompressible hyperelasticity
-Eq. \eqref{eq_S} provides the general form of the relationship between $$\mathbf{C}$$ and $$\mathbf{S}$$ in hyperelasticity when $$\mathbf{C}$$ is <i>arbitrary</i>. However, under the condition of incompressibility, the elements of $$\mathbf{C}$$ are not arbitrary. In fact, when we impose incompressibility, we are confining $$\mathbf{C}$$ to a very special space of $$\mathbb{R}^3 \times \mathbb{R}^3$$ tensors such that the determinant of $$\mathbf{C}$$ is always 1. In this case the relationship between $$\mathbf{C}$$ and $$\mathbf{S}$$ has the following form {% cite bonetNONLINEARCONTINUUMMECHANICS1997 --collection external_references %}
+Eq. \eqref{eq_S} provides the general form of the relationship between $$\mathbf{C}$$ and $$\mathbf{S}$$ in hyperelasticity when $$\mathbf{C}$$ is <i>arbitrary</i>. However, under the condition of incompressibility, the elements of $$\mathbf{C}$$ are not arbitrary. In fact, when we impose incompressibility, we are confining $$\mathbf{C}$$ to a very special subspace of $$\mathbb{R}^3 \times \mathbb{R}^3$$ tensors such that the determinant of $$\mathbf{C}$$ is always 1. In this case the relationship between $$\mathbf{C}$$ and $$\mathbf{S}$$ has the following form {% cite bonetNONLINEARCONTINUUMMECHANICS1997 --collection external_references %}
 
 \begin{equation}
     \label{eq_S_incomp}
