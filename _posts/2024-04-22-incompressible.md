@@ -25,7 +25,7 @@ The deformation gradient $$\mathbf{F}$$ contains information both about stretchi
 
 
 ### Incompressible hyperelasticity
-Eq. \eqref{eq_S} provides the most general form of the relationship between $$\mathbf{C}$$ and $$\mathbf{S}$$ in hyperelasticity when $$\mathbf{C}$$ is arbitrary. However, under the condition of incompressibility, the elements of $$\mathbf{C}$$ are not arbitrary. In this case the relationship between $$\mathbf{C}$$ and $$\mathbf{S}$$ has the following form \cite{bonetNONLINEARCONTINUUMMECHANICS1997}
+Eq. \eqref{eq_S} provides the most general form of the relationship between $$\mathbf{C}$$ and $$\mathbf{S}$$ in hyperelasticity when $$\mathbf{C}$$ is arbitrary. However, under the condition of incompressibility, the elements of $$\mathbf{C}$$ are not arbitrary. In this case the relationship between $$\mathbf{C}$$ and $$\mathbf{S}$$ has the following form {% cite bonetNONLINEARCONTINUUMMECHANICS1997 --collection external_references %}
 
 \begin{equation}
     \label{eq_S_incomp}
@@ -34,16 +34,16 @@ Eq. \eqref{eq_S} provides the most general form of the relationship between $$\m
 
 where $$p$$ is a pressure Lagrange multiplier which can be understood as a hydrostatic stress to resist compression, $$J=\det \mathbf{F}$$ is the volume change and $$\hat{\Psi}$$ is a \emph{distortional} energy function that depends on $$\mathbf{C}$$ only through the isochoric part of $$\mathbf{C}$$, i.e.,
 
-\begin{equation*}
+\begin{equation}
     \hat{\Psi}(\mathbf{C}) &= \Psi(\hat{\mathbf{C}}) \\
     \hat{\mathbf{C}} &= (\det \mathbf{C})^{-1/3}\mathbf{C} \, .
-\end{equation*}
+\end{equation}
 
-Using the relationship in Eq. \eqref{eq_S_incomp} requires determining the pressure $$p$$. In some special cases, such as biaxial deformation of a thin membrane under plane-stress conditions, $$p$$ can be determined from boundary conditions. However, this is not possible in general. Therefore, a \emph{nearly incompressible} approach is followed in most practical applications \cite{holzapfel2002nonlinear}. In nearly incompressible hyperelasticity of soft tissue, the SEDF is constructed by adding a volumetric term to the distortional energy, i.e.,
+Using the relationship in Eq. \eqref{eq_S_incomp} requires determining the pressure $$p$$. In some special cases, such as biaxial deformation of a thin membrane under plane-stress conditions, $$p$$ can be determined from boundary conditions. However, this is not possible in general. Therefore, a \emph{nearly incompressible} approach is followed in most practical applications {% cite holzapfel2002nonlinear --collection external_references %}. In nearly incompressible hyperelasticity of soft tissue, the SEDF is constructed by adding a volumetric term to the distortional energy, i.e.,
 
-\begin{equation*}
+\begin{equation}
     \Psi(\mathbf{C}) = \hat{\Psi}(\mathbf{C}) + \Psi_{\text{vol}}(J)
-\end{equation*}
+\end{equation}
 
 $$\Psi_{\text{vol}}$$ is simply a term that penalizes volume changes in the material ($$J=1$$ corresponds to no volume change, while deviations from $$J=1$$ signify changing volume). The simplest form of $$\Psi_{\text{vol}}$$ is given by
 
@@ -59,5 +59,7 @@ with $$K$$ a bulk modulus parameter. When this form of $$\Psi_{\text{vol}}$$ is 
     \mathbf{S} = 2\frac{\partial \hat{\Psi}(\mathbf{C})}{\partial \mathbf{C}} + K (J-1)J\mathbf{C}^{-1} .
 \end{equation}
 
-The only task that remains ahead before we can model the behavior of a hyperelastic material is to specify a suitable form of $$\hat{\Psi}$$. $$\hat{\Psi}$$ has to satisfy a number of mathematical and physical constraints to be admissible. First and foremost, $$\hat{\Psi}$$ has to be \emph{objective}. Simply put, the principle of objectivity states that the stress in the material must be independent of the frame of reference. There are two widely used methods of satisfying this criterion: 1) using SEDFs that only depend on the principal (distortional) stretches, $$\hat{\lambda}_1, \hat{\lambda}_2, \hat{\lambda}_3$$ (square roots of the eigenvalues of $$\hat{\mathbf{C}}$$) \cite{lohr2022introduction,ogden1997non}, or 2) using SEDFs that only depend on the tensor invariants of $$\hat{\mathbf{C}}$$ \cite{ehret2007polyconvex}. 
+The only task that remains ahead before we can model the behavior of a hyperelastic material is to specify a suitable form of $$\hat{\Psi}$$. $$\hat{\Psi}$$ has to satisfy a number of mathematical and physical constraints to be admissible. First and foremost, $$\hat{\Psi}$$ has to be \emph{objective}. Simply put, the principle of objectivity states that the stress in the material must be independent of the frame of reference. There are two widely used methods of satisfying this criterion: 1) using SEDFs that only depend on the principal (distortional) stretches, $$\hat{\lambda}_1, \hat{\lambda}_2, \hat{\lambda}_3$$ (square roots of the eigenvalues of $$\hat{\mathbf{C}}$$) {% cite lohr2022introduction ogden1997non --collection external_references %}, or 2) using SEDFs that only depend on the tensor invariants of $$\hat{\mathbf{C}}$$ {% cite ehret2007polyconvex --collection external_references %}. 
 
+
+{% bibliography --cited %}
