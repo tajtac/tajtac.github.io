@@ -7,7 +7,7 @@ tags: constitutive hyperelasticity
 # categories: sample-posts
 ---
 ## Hyperelasticity
-Hyperelasticity is formally defined in terms of an energy potential that allows us to relate the stress at a point in the material to the deformation at that point. If we denote the first Piola Kirchhoff stress with $$\mathbf{P}$$ and the deformation gradient with $$\mathbf{F}$$, then hyperelasticity posits the existence of a scalar-valued potential function known as the \emph{strain energy density function} (SEDF) {% cite ogden1997non %}, denoted as $$\Psi(\mathbf{F})$$, such that
+Hyperelasticity is formally defined in terms of an energy potential that allows us to relate the stress at a point in the material to the deformation at that point. If we denote the first Piola Kirchhoff stress with $$\mathbf{P}$$ and the deformation gradient with $$\mathbf{F}$$, then hyperelasticity posits the existence of a scalar-valued potential function known as the \emph{strain energy density function} (SEDF) {% cite ogden1997non --collection external_references %}, denoted as $$\Psi(\mathbf{F})$$, such that
 
 \begin{equation}
     \label{eq_def_hyperelasticity}
