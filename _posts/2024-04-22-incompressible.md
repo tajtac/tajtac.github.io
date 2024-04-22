@@ -7,7 +7,7 @@ tags: constitutive hyperelasticity
 # categories: sample-posts
 ---
 ## Hyperelasticity
-Hyperelasticity is formally defined in terms of an energy potential that allows us to relate the stress at a point in the material to the deformation at that point. If we denote the first Piola Kirchhoff stress with $$\mathbf{P}$$ and the deformation gradient with $$\mathbf{F}$$, then hyperelasticity posits the existence of a scalar-valued potential function known as the $\emph{strain energy density function}$ (SEDF) {% cite ogden1997non --collection external_references %}, denoted as $$\Psi(\mathbf{F})$$, such that
+Hyperelasticity is formally defined in terms of an energy potential that allows us to relate the stress at a point in the material to the deformation at that point. If we denote the first Piola Kirchhoff stress with $$\mathbf{P}$$ and the deformation gradient with $$\mathbf{F}$$, then hyperelasticity posits the existence of a scalar-valued potential function known as the $$\emph{strain energy density function}$$ (SEDF) {% cite ogden1997non --collection external_references %}, denoted as $$\Psi(\mathbf{F})$$, such that
 
 \begin{equation}
     \label{eq_def_hyperelasticity}
@@ -34,10 +34,12 @@ Eq. \eqref{eq_S} provides the most general form of the relationship between $$\m
 
 where $$p$$ is a pressure Lagrange multiplier which can be understood as a hydrostatic stress to resist compression, $$J=\det \mathbf{F}$$ is the volume change and $$\hat{\Psi}$$ is a \emph{distortional} energy function that depends on $$\mathbf{C}$$ only through the isochoric part of $$\mathbf{C}$$, i.e.,
 
-\begin{aligned}
-    \hat{\Psi}(\mathbf{C}) &= \Psi(\hat{\mathbf{C}}) \\
-    \hat{\mathbf{C}} &= (\det \mathbf{C})^{-1/3}\mathbf{C} \, .
-\end{aligned}
+\begin{equation}
+    \hat{\Psi}(\mathbf{C}) &= \Psi(\hat{\mathbf{C}}) \nonumber
+\end{equation}
+\begin{equation}
+    \hat{\mathbf{C}} &= (\det \mathbf{C})^{-1/3}\mathbf{C} \, . \nonumber
+\end{equation}
 
 Using the relationship in Eq. \eqref{eq_S_incomp} requires determining the pressure $$p$$. In some special cases, such as biaxial deformation of a thin membrane under plane-stress conditions, $$p$$ can be determined from boundary conditions. However, this is not possible in general. Therefore, a \emph{nearly incompressible} approach is followed in most practical applications {% cite holzapfel2002nonlinear --collection external_references %}. In nearly incompressible hyperelasticity of soft tissue, the SEDF is constructed by adding a volumetric term to the distortional energy, i.e.,
 
