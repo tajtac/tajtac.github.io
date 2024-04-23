@@ -17,7 +17,8 @@ news: true  # includes a list of news items
 selected_papers: false # includes a list of papers marked as "selected={true}"
 social: true  # includes social icons at the bottom of the page
 ---
-PhD candidate at <a href='http://www.purdue.edu'>Purdue University</a> working on applying <b> machine learning </b> methods to <b>mechanics of soft materials</b>. I am co-advised by <a href='https://engineering.purdue.edu/ME/People/OME/Areas/ptProfile?resource_id=132124&group_id=11989'>Dr. Adrian Buganza Tepole</a> and <a href='https://engineering.purdue.edu/ME/People/ptProfile?resource_id=113500'>Dr. Ilias Bilionis</a>.
+PhD candidate at <a href='http://www.purdue.edu'>Purdue University</a> working under <a href='https://engineering.purdue.edu/ME/People/OME/Areas/ptProfile?resource_id=132124&group_id=11989'>Dr. Adrian Buganza Tepole</a>. 
 
-As a researcher I am interested in data-driven modeling of soft materials, micromechanical modeling and the finite element method. So far in my PhD I have been focusing on integrating `physics` into `machine learning` methods as hard constraints. This ensures the models we develop are physically realistic, enhances extrapolation capabilities of the models and aids in convergence of numerical algorithms.
+My research focuses on integrating `physics` into `machine learning` models as hard constraints. In my PhD, I developed machine learning models of material behaviors like hyperelasticity, viscoelasticity and damage using machine learning methods in a way that the underlying physics is <i>always</i> satisfied. Recently, I used `diffusion`, a mathematical model used in Generative AI, to construct a generative framework for physics-informed hyperelasticity.
 
+I am a <a href='https://cee.duke.edu/about/awards-honors/melosh-medal'>Melosh medalist</a> and I have won a number of other recognitions during my PhD.
