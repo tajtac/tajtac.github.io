@@ -24,6 +24,7 @@ Short video explaining our paper on generative hyperelasticity
 <video width="560" height="315" controls>
   <source src="/assets/vid/diffusion.mov" type="video/mp4">
 </video>
+<br/><br/>
 
 #### Generative Hyperelasticity with Physic-Informed Probabilistic Diffusion Fields
 My talk at the USACM Student Chapter Seminar Series
