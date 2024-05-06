@@ -1380,7 +1380,7 @@ class visco(SlideScene):
         self.play(Write(eq), Write(neq), Write(diss))
         self.slide_break()
 
-        self.play(ReplacementTransform(eq, psi_eq), ReplacementTransform(diss, phi))
+        self.play(ReplacementTransform(eq, psi_eq))
         self.slide_break()
         self.play(ReplacementTransform(neq, psi_neq))
         self.slide_break()
@@ -1820,7 +1820,7 @@ class diff_p2_intro(SlideScene):
         # self.play(FadeOut(out_arrow, out_img), run_time=0.5)
 
         self.slide_break()
-        self.play(FadeOut(diffbox, fwdsdebox, rvssdebox, difflabel, fwdsdelabel, rvssdelabel))
+        self.play(FadeOut(diffbox, fwdsdebox, rvssdebox, difflabel, fwdsdelabel, rvssdelabel, out_arrow, out_img))
 
 
 class diff_p3_diff4hyper(SlideScene):
