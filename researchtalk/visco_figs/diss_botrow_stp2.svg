@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg width="100%" height="100%" viewBox="0 0 392 305" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-miterlimit:10;">
+    <g transform="matrix(1,0,0,1,51.302,151.91)">
+        <g id="Axes">
+            <path d="M302.001,87.502L302.001,2.817M329.208,87.502L329.208,2.817" style="fill:none;fill-rule:nonzero;stroke:rgb(128,128,128);stroke-width:0.2px;"/>
+        </g>
+    </g>
+    <g id="dots">
+        <g id="Untrained-NN" serif:id="Untrained NN">
+            <g transform="matrix(0,-1,-1,0,365.487,532.045)">
+                <ellipse cx="302.001" cy="12.184" rx="0.797" ry="0.797" style="fill:white;stroke:white;stroke-width:0.4px;"/>
+            </g>
+            <g transform="matrix(0,-1,-1,0,366.16,531.371)">
+                <ellipse cx="302.001" cy="12.857" rx="0.797" ry="0.797" style="fill:white;stroke:white;stroke-width:0.4px;"/>
+            </g>
+            <g transform="matrix(0,-1,-1,0,366.88,530.651)">
+                <circle cx="302.001" cy="13.578" r="0.797" style="fill:white;stroke:white;stroke-width:0.4px;"/>
+            </g>
+            <g transform="matrix(0,-1,-1,0,366.732,530.8)">
+                <ellipse cx="302.001" cy="13.429" rx="0.797" ry="0.797" style="fill:white;stroke:white;stroke-width:0.4px;"/>
+            </g>
+            <g transform="matrix(0,-1,-1,0,366.15,531.382)">
+                <circle cx="302.001" cy="12.847" r="0.797" style="fill:white;stroke:white;stroke-width:0.4px;"/>
+            </g>
+            <g transform="matrix(0,-1,-1,0,366.815,530.717)">
+                <ellipse cx="302.001" cy="13.512" rx="0.797" ry="0.797" style="fill:white;stroke:white;stroke-width:0.4px;"/>
+            </g>
+            <g transform="matrix(0,-1,-1,0,362.68,534.851)">
+                <ellipse cx="302.001" cy="9.378" rx="0.797" ry="0.797" style="fill:white;stroke:white;stroke-width:0.4px;"/>
+            </g>
+            <g transform="matrix(0,-1,-1,0,367.196,530.336)">
+                <circle cx="302.001" cy="13.893" r="0.797" style="fill:white;stroke:white;stroke-width:0.4px;"/>
+            </g>
+            <g transform="matrix(0,-1,-1,0,362.355,535.176)">
+                <ellipse cx="302.001" cy="9.052" rx="0.797" ry="0.797" style="fill:white;stroke:white;stroke-width:0.4px;"/>
+            </g>
+            <g transform="matrix(0,-1,-1,0,365.786,531.746)">
+                <ellipse cx="302.001" cy="12.483" rx="0.797" ry="0.797" style="fill:white;stroke:white;stroke-width:0.4px;"/>
+            </g>
+            <g transform="matrix(0,-1,-1,0,366.36,531.172)">
+                <ellipse cx="302.001" cy="13.057" rx="0.797" ry="0.797" style="fill:white;stroke:white;stroke-width:0.4px;"/>
+            </g>
+            <g transform="matrix(0,-1,-1,0,366.898,530.633)">
+                <ellipse cx="302.001" cy="13.596" rx="0.797" ry="0.797" style="fill:white;stroke:white;stroke-width:0.4px;"/>
+            </g>
+            <g transform="matrix(0,-1,-1,0,366.552,530.98)">
+                <ellipse cx="302.001" cy="13.249" rx="0.797" ry="0.797" style="fill:white;stroke:white;stroke-width:0.4px;"/>
+            </g>
+            <g transform="matrix(0,-1,-1,0,367.092,530.44)">
+                <ellipse cx="302.001" cy="13.789" rx="0.797" ry="0.797" style="fill:white;stroke:white;stroke-width:0.4px;"/>
+            </g>
+            <g transform="matrix(0,-1,-1,0,367.341,530.191)">
+                <ellipse cx="302.001" cy="14.038" rx="0.797" ry="0.797" style="fill:white;stroke:white;stroke-width:0.4px;"/>
+            </g>
+            <g transform="matrix(0,-1,-1,0,363.438,534.093)">
+                <ellipse cx="302.001" cy="10.135" rx="0.797" ry="0.797" style="fill:white;stroke:white;stroke-width:0.4px;"/>
+            </g>
+            <g transform="matrix(0,-1,-1,0,363.925,533.607)">
+                <ellipse cx="302.001" cy="10.622" rx="0.797" ry="0.797" style="fill:white;stroke:white;stroke-width:0.4px;"/>
+            </g>
+            <g transform="matrix(0,-1,-1,0,366.109,531.423)">
+                <ellipse cx="302.001" cy="12.806" rx="0.797" ry="0.797" style="fill:white;stroke:white;stroke-width:0.4px;"/>
+            </g>
+            <g transform="matrix(0,-1,-1,0,366.42,531.112)">
+                <ellipse cx="302.001" cy="13.117" rx="0.797" ry="0.797" style="fill:white;stroke:white;stroke-width:0.4px;"/>
+            </g>
+            <g transform="matrix(0,-1,-1,0,364.471,533.061)">
+                <ellipse cx="302.001" cy="11.168" rx="0.797" ry="0.797" style="fill:white;stroke:white;stroke-width:0.4px;"/>
+            </g>
+            <g transform="matrix(0,-1,-1,0,367.155,530.376)">
+                <ellipse cx="302.001" cy="13.852" rx="0.797" ry="0.797" style="fill:white;stroke:white;stroke-width:0.4px;"/>
+            </g>
+            <g transform="matrix(0,-1,-1,0,365.128,532.404)">
+                <ellipse cx="302.001" cy="11.825" rx="0.797" ry="0.797" style="fill:white;stroke:white;stroke-width:0.4px;"/>
+            </g>
+            <g transform="matrix(0,-1,-1,0,364.705,532.826)">
+                <circle cx="302.001" cy="11.402" r="0.797" style="fill:white;stroke:white;stroke-width:0.4px;"/>
+            </g>
+            <g transform="matrix(0,-1,-1,0,365.542,531.989)">
+                <ellipse cx="302.001" cy="12.24" rx="0.797" ry="0.797" style="fill:white;stroke:white;stroke-width:0.4px;"/>
+            </g>
+            <g transform="matrix(0,-1,-1,0,365.133,532.398)">
+                <ellipse cx="302.001" cy="11.83" rx="0.797" ry="0.797" style="fill:white;stroke:white;stroke-width:0.4px;"/>
+            </g>
+            <g transform="matrix(0,-1,-1,0,364.315,533.217)">
+                <ellipse cx="302.001" cy="11.012" rx="0.797" ry="0.797" style="fill:white;stroke:white;stroke-width:0.4px;"/>
+            </g>
+            <g transform="matrix(0,-1,-1,0,363.951,533.581)">
+                <ellipse cx="302.001" cy="10.648" rx="0.797" ry="0.797" style="fill:white;stroke:white;stroke-width:0.4px;"/>
+            </g>
+            <g transform="matrix(0,-1,-1,0,366.871,530.66)">
+                <ellipse cx="302.001" cy="13.568" rx="0.797" ry="0.797" style="fill:white;stroke:white;stroke-width:0.4px;"/>
+            </g>
+            <g transform="matrix(0,-1,-1,0,364.414,533.118)">
+                <ellipse cx="302.001" cy="11.111" rx="0.797" ry="0.797" style="fill:white;stroke:white;stroke-width:0.4px;"/>
+            </g>
+            <g transform="matrix(0,-1,-1,0,365.29,532.242)">
+                <ellipse cx="302.001" cy="11.987" rx="0.797" ry="0.797" style="fill:white;stroke:white;stroke-width:0.4px;"/>
+            </g>
+            <g transform="matrix(0,-1,-1,0,366.272,531.259)">
+                <circle cx="302.001" cy="12.97" r="0.797" style="fill:white;stroke:white;stroke-width:0.4px;"/>
+            </g>
+            <g transform="matrix(0,-1,-1,0,368.474,529.057)">
+                <circle cx="302.001" cy="15.171" r="0.797" style="fill:white;stroke:white;stroke-width:0.4px;"/>
+            </g>
+            <g transform="matrix(0,-1,-1,0,367.683,529.848)">
+                <ellipse cx="302.001" cy="14.38" rx="0.797" ry="0.797" style="fill:white;stroke:white;stroke-width:0.4px;"/>
+            </g>
+            <g transform="matrix(0,-1,-1,0,366.063,531.469)">
+                <ellipse cx="302.001" cy="12.76" rx="0.797" ry="0.797" style="fill:white;stroke:white;stroke-width:0.4px;"/>
+            </g>
+            <g transform="matrix(0,-1,-1,0,367.106,530.425)">
+                <ellipse cx="302.001" cy="13.804" rx="0.797" ry="0.797" style="fill:white;stroke:white;stroke-width:0.4px;"/>
+            </g>
+            <g transform="matrix(0,-1,-1,0,366.881,530.651)">
+                <ellipse cx="302.001" cy="13.578" rx="0.797" ry="0.797" style="fill:white;stroke:white;stroke-width:0.4px;"/>
+            </g>
+            <g transform="matrix(0,-1,-1,0,364.303,533.228)">
+                <ellipse cx="302.001" cy="11" rx="0.797" ry="0.797" style="fill:white;stroke:white;stroke-width:0.4px;"/>
+            </g>
+            <g transform="matrix(0,-1,-1,0,367.009,530.523)">
+                <circle cx="302.001" cy="13.706" r="0.797" style="fill:white;stroke:white;stroke-width:0.4px;"/>
+            </g>
+            <g transform="matrix(0,-1,-1,0,366.485,531.047)">
+                <circle cx="302.001" cy="13.182" r="0.797" style="fill:white;stroke:white;stroke-width:0.4px;"/>
+            </g>
+            <g transform="matrix(0,-1,-1,0,365.767,531.764)">
+                <ellipse cx="302.001" cy="12.465" rx="0.797" ry="0.797" style="fill:white;stroke:white;stroke-width:0.4px;"/>
+            </g>
+            <g transform="matrix(0,-1,-1,0,363.538,533.994)">
+                <circle cx="302.001" cy="10.235" r="0.797" style="fill:white;stroke:white;stroke-width:0.4px;"/>
+            </g>
+            <g transform="matrix(0,-1,-1,0,366.916,530.615)">
+                <ellipse cx="302.001" cy="13.613" rx="0.797" ry="0.797" style="fill:white;stroke:white;stroke-width:0.4px;"/>
+            </g>
+            <g transform="matrix(0,-1,-1,0,365.483,532.049)">
+                <ellipse cx="302.001" cy="12.18" rx="0.797" ry="0.797" style="fill:white;stroke:white;stroke-width:0.4px;"/>
+            </g>
+            <g transform="matrix(0,-1,-1,0,367.664,529.868)">
+                <ellipse cx="302.001" cy="14.361" rx="0.797" ry="0.797" style="fill:white;stroke:white;stroke-width:0.4px;"/>
+            </g>
+            <g transform="matrix(0,-1,-1,0,367.17,530.361)">
+                <ellipse cx="302.001" cy="13.867" rx="0.797" ry="0.797" style="fill:white;stroke:white;stroke-width:0.4px;"/>
+            </g>
+            <g transform="matrix(0,-1,-1,0,366.83,530.702)">
+                <ellipse cx="302.001" cy="13.527" rx="0.797" ry="0.797" style="fill:white;stroke:white;stroke-width:0.4px;"/>
+            </g>
+            <g transform="matrix(0,-1,-1,0,366.149,531.383)">
+                <ellipse cx="302.001" cy="12.846" rx="0.797" ry="0.797" style="fill:white;stroke:white;stroke-width:0.4px;"/>
+            </g>
+            <g transform="matrix(0,-1,-1,0,367.834,529.698)">
+                <ellipse cx="302.001" cy="14.531" rx="0.797" ry="0.797" style="fill:white;stroke:white;stroke-width:0.4px;"/>
+            </g>
+            <g transform="matrix(0,-1,-1,0,366.014,531.518)">
+                <ellipse cx="302.001" cy="12.711" rx="0.797" ry="0.797" style="fill:white;stroke:white;stroke-width:0.4px;"/>
+            </g>
+        </g>
+    </g>
+    <circle cx="1.021" cy="134.513" r="1.021"/>
+    <g transform="matrix(0.635376,0,0,0.635376,142.866,91.0116)">
+        <circle cx="390.049" cy="247.836" r="1.768"/>
+    </g>
+</svg>

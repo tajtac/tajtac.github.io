@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg width="100%" height="100%" viewBox="0 0 1800 1039" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;">
+    <g transform="matrix(4.84333,0,0,4.84333,-3516.46,-1967.03)">
+        <path d="M850,509.5L900,469.5" style="fill:none;fill-rule:nonzero;stroke:white;stroke-width:0.21px;"/>
+        <path d="M850,509.5L900,509.5" style="fill:none;fill-rule:nonzero;stroke:white;stroke-width:0.21px;"/>
+        <path d="M900,469.5L950,469.5" style="fill:none;fill-rule:nonzero;stroke:white;stroke-width:0.21px;"/>
+        <path d="M900,469.5L950,509.5" style="fill:none;fill-rule:nonzero;stroke:white;stroke-width:0.21px;"/>
+        <path d="M900,509.5L950,469.5" style="fill:none;fill-rule:nonzero;stroke:white;stroke-width:0.21px;"/>
+        <path d="M900,509.5L950,509.5" style="fill:none;fill-rule:nonzero;stroke:white;stroke-width:0.21px;"/>
+        <path d="M950,469.5L1000,469.5" style="fill:none;fill-rule:nonzero;stroke:white;stroke-width:0.21px;"/>
+        <path d="M950,509.5L1000,469.5" style="fill:none;fill-rule:nonzero;stroke:white;stroke-width:0.21px;"/>
+        <path d="M850,509.5L900,549.5" style="fill:none;fill-rule:nonzero;stroke:white;stroke-width:0.21px;"/>
+        <path d="M900,549.5L950,469.5" style="fill:none;fill-rule:nonzero;stroke:white;stroke-width:0.21px;"/>
+        <path d="M900,549.5L950,509.5" style="fill:none;fill-rule:nonzero;stroke:white;stroke-width:0.21px;"/>
+        <path d="M900,469.5L950,549.5" style="fill:none;fill-rule:nonzero;stroke:white;stroke-width:0.21px;"/>
+        <path d="M900,509.5L950,549.5" style="fill:none;fill-rule:nonzero;stroke:white;stroke-width:0.21px;"/>
+        <path d="M900,549.5L950,549.5" style="fill:none;fill-rule:nonzero;stroke:white;stroke-width:0.21px;"/>
+        <path d="M950,549.5L1000,469.5" style="fill:none;fill-rule:nonzero;stroke:white;stroke-width:0.21px;"/>
+        <path d="M950,469.5L1000,509.5" style="fill:none;fill-rule:nonzero;stroke:white;stroke-width:0.21px;"/>
+        <path d="M950,509.5L1000,509.5" style="fill:none;fill-rule:nonzero;stroke:white;stroke-width:0.21px;"/>
+        <path d="M950,549.5L1000,509.5" style="fill:none;fill-rule:nonzero;stroke:white;stroke-width:0.21px;"/>
+        <path d="M950,469.5L1000,549.5" style="fill:none;fill-rule:nonzero;stroke:white;stroke-width:0.21px;"/>
+        <path d="M950,509.5L1000,549.5" style="fill:none;fill-rule:nonzero;stroke:white;stroke-width:0.21px;"/>
+        <path d="M950,549.5L1000,549.5" style="fill:none;fill-rule:nonzero;stroke:white;stroke-width:0.21px;"/>
+        <path d="M1000,469.5L1050,509.5" style="fill:none;fill-rule:nonzero;stroke:white;stroke-width:0.21px;"/>
+        <path d="M1000,509.5L1050,509.5" style="fill:none;fill-rule:nonzero;stroke:white;stroke-width:0.21px;"/>
+        <path d="M1000,549.5L1050,509.5" style="fill:none;fill-rule:nonzero;stroke:white;stroke-width:0.21px;"/>
+        <circle id="_0_0" serif:id="0_0" cx="850" cy="509.5" r="13" style="fill:white;stroke:white;stroke-width:3.1px;"/>
+        <circle id="_1_0" serif:id="1_0" cx="900" cy="469.5" r="13" style="fill:white;stroke:white;stroke-width:3.1px;"/>
+        <circle id="_1_1" serif:id="1_1" cx="900" cy="509.5" r="13" style="fill:white;stroke:white;stroke-width:3.1px;"/>
+        <circle id="_1_2" serif:id="1_2" cx="900" cy="549.5" r="13" style="fill:white;stroke:white;stroke-width:3.1px;"/>
+        <circle id="_2_0" serif:id="2_0" cx="950" cy="469.5" r="13" style="fill:white;stroke:white;stroke-width:3.1px;"/>
+        <circle id="_2_1" serif:id="2_1" cx="950" cy="509.5" r="13" style="fill:white;stroke:white;stroke-width:3.1px;"/>
+        <circle id="_2_2" serif:id="2_2" cx="950" cy="549.5" r="13" style="fill:white;stroke:white;stroke-width:3.1px;"/>
+        <circle id="_3_0" serif:id="3_0" cx="1000" cy="469.5" r="13" style="fill:white;stroke:white;stroke-width:3.1px;"/>
+        <circle id="_3_1" serif:id="3_1" cx="1000" cy="509.5" r="13" style="fill:white;stroke:white;stroke-width:3.1px;"/>
+        <circle id="_3_2" serif:id="3_2" cx="1000" cy="549.5" r="13" style="fill:white;stroke:white;stroke-width:3.1px;"/>
+        <circle id="_4_0" serif:id="4_0" cx="1050" cy="509.5" r="13" style="fill:white;stroke:white;stroke-width:3.1px;"/>
+    </g>
+</svg>

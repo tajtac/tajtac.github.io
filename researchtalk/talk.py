@@ -1,7 +1,7 @@
 from manim_slide import DOWN, LEFT, Group, Tex, SlideScene, SVGMobject, FadeIn, Write, Unwrite, FadeOut, YELLOW, WHITE, UP, BLACK, Text, RIGHT, DEGREES, GREEN
 from manim_slide import ReplacementTransform, ORIGIN, TexTemplate, MathTex, Circumscribe, Transform, BLUE, Dot, Create, Flash, Restore, Arrow, Square
 from manim_slide import Axes, DashedLine, SlideMovingCameraScene, Cross, ShowPassingFlash, SlideThreeDScene, ImageMobject, ThreeDAxes, ApplyWave
-from manim_slide import Line, Rectangle, GrowFromEdge, BLUE_C, rate_functions, linear
+from manim_slide import Line, Rectangle, GrowFromEdge, BLUE_C, rate_functions, linear, MathTex
 import numpy as np
 from pylab import cm
 import matplotlib, pickle
@@ -68,19 +68,57 @@ class hyper_p1_nnmat(SlideScene):
         self.play(Write(whatishyper))
         self.slide_break()
 
-        defhyper = Tex('$\\mathbf{P} = \\frac{\partial \Psi}{\partial \mathbf{F}}$')
-        self.play(Write(defhyper))
+        # defhyper = MathTex(r'\mathbf{P}', ' = {', '{\partial \Psi}', ' \over ', '{\partial \mathbf{F}}', '}')
+        # defhyper = MathTex('\mathbf{P}', ' = {{\partial ', '\Psi', '} \over {\partial ', '\mathbf{F}', '}}')
+        defhyper = MathTex('\mathbf{P}', ' = {', '{\partial ', '\Psi', '(\mathbf{F})} \over ', '{\partial ', '\mathbf{F}}', '}')
+        definitions1 = Group(
+            Tex('$\\mathbf{P}$', ': First Piola-Kirchhoff stress'),
+            Tex('$\mathbf{F}$', ': Deformation gradient'),
+            Tex('$\Psi$', ': Strain Energy Density Function (SEDF)')
+        ).arrange(DOWN,aligned_edge=LEFT,buff=0.4).scale(0.75).next_to(defhyper, DOWN).shift(3*LEFT+DOWN)
+        defhyper_copy = defhyper.copy()
+        self.play(Write(defhyper)) 
         self.slide_break()
 
-        self.play(Unwrite(defhyper))
-
-        dPsi = Tex('$\\frac{\partial \Psi}{\partial I_1}, \\frac{\partial \Psi}{\partial I_2},' +
-                   ' \\frac{\partial \Psi}{\partial J}, \\frac{\partial \Psi}{\partial I_{4v}}, \\frac{\partial \Psi}{\partial I_{4w}}, \cdots$')
-        self.play(Write(dPsi))
+        self.play(Transform(defhyper_copy[0], definitions1[0][0]))
+        self.play(Write(definitions1[0][1]))
+        self.slide_break()
+        self.play(Transform(defhyper_copy[6], definitions1[1][0]))
+        self.play(Write(definitions1[1][1]))
+        self.slide_break()
+        self.play(Transform(defhyper_copy[3], definitions1[2][0]))
+        self.play(Write(definitions1[2][1]))
         self.slide_break()
 
+        self.play(Unwrite(defhyper), FadeOut(definitions1), FadeOut(defhyper_copy))
 
-        self.play(FadeOut(dPsi, whatishyper))
+        eqn_S = MathTex('\mathbf{S}', ' = 2{', '{\partial ', '\Psi', '(\mathbf{C})} \over ', '{\partial ', '\mathbf{C}}', '}')
+        definitions2 = Group(
+            Tex('$\\mathbf{S}$', ': Second Piola-Kirchhoff stress'),
+            Tex('$\mathbf{C}$', ': Right Cauchy-Green deformation tensor'),
+            Tex('$\Psi$', ': Strain Energy Density Function (SEDF)')
+        ).arrange(DOWN,aligned_edge=LEFT,buff=0.4).scale(0.75).next_to(defhyper, DOWN).shift(3*LEFT+DOWN)
+        eqn_S_copy = eqn_S.copy()
+        self.play(Write(eqn_S)) 
+        self.slide_break()
+
+        self.play(Transform(eqn_S_copy[0], definitions2[0][0]))
+        self.play(Write(definitions2[0][1]))
+        self.slide_break()
+        self.play(Transform(eqn_S_copy[6], definitions2[1][0]))
+        self.play(Write(definitions2[1][1]))
+        self.play(Transform(eqn_S_copy[3], definitions2[2][0]))
+        self.play(Write(definitions2[2][1]))
+        self.slide_break()
+
+        self.play(Unwrite(eqn_S), FadeOut(definitions2), FadeOut(eqn_S_copy), FadeOut(whatishyper))
+
+        # dPsi = Tex('$\\frac{\partial \Psi}{\partial I_1}, \\frac{\partial \P rtial I_{4v}}, \\frac{\partial \Psi}{\partial I_{4w}}, \cdots$')
+        # self.play(Write(dPsi))
+        # self.slide_break()
+        # self.play(FadeOut(dPsi, whatishyper))
+
+
         # List of names
         names = ["Neo Hookean Model",
                  "Yeoh Model",
@@ -94,12 +132,12 @@ class hyper_p1_nnmat(SlideScene):
                  "Gent-Thomas Model",
                  "Hart-Smith Model",
                  "Alexander Model",
-                 "James Model",]
-                #  "Haines-Wilson Model",
-                #  "Swanson Model",
-                #  "Kilian (Van Der Waals) Model",
-                #  "Yamashita-Kawabata Model",
-                #  "Lion Model",
+                 "James Model",
+                 "Haines-Wilson Model",
+                 "Swanson Model",
+                 "Kilian (Van Der Waals) Model",
+                 "Yamashita-Kawabata Model",
+                 "Lion Model",]
                 #  "Diani-Rey Model",
                 #  "Haupt-Sedlan Model",
                 #  "Chevalier-Marco Model",
@@ -149,19 +187,25 @@ class hyper_p1_nnmat(SlideScene):
         nn_diag = SVGMobject('nn.svg').scale(2).rotate(180*DEGREES)
         self.play(Write(nn_diag))
 
+        # nn_outs = Group(
+        #     Tex('$\Psi_1$'),
+        #     Tex('$\Psi_2$'),
+        #     Tex('$\Psi_{4v}$'),
+        #     Tex('$\Psi_{4w}$')
+        # ).arrange(DOWN, aligned_edge=LEFT, buff=0.3).scale(0.75).move_to(4.2*RIGHT).set_color(YELLOW)
         nn_outs = Group(
-            Tex('$\Psi_1$'),
-            Tex('$\Psi_2$'),
-            Tex('$\Psi_{4v}$'),
-            Tex('$\Psi_{4w}$')
-        ).arrange(DOWN, aligned_edge=LEFT, buff=0.3).scale(0.75).move_to(4.2*RIGHT).set_color(YELLOW)
+            Tex('$\partial \Psi / \partial I_1$'),
+            Tex('$\partial \Psi / \partial I_2$'),
+            Tex('$\partial \Psi / \partial I_{4v}$'),
+            Tex('$\partial \Psi / \partial I_{4w}$')
+        ).arrange(DOWN, aligned_edge=LEFT, buff=0.3).scale(0.75).move_to(4.5*RIGHT).set_color(YELLOW)
         self.play(FadeIn(nn_outs))
         self.slide_break()
 
         self.play(FadeOut(nn_diag, nn_inps))
         self.play(nn_outs.animate.move_to(4*LEFT))
         arr = Tex('$\\rightarrow$').next_to(nn_outs, RIGHT)
-        sgm = Tex('$\sigma$').next_to(arr, RIGHT)
+        sgm = Tex('$\mathbf{S}$').next_to(arr, RIGHT)
         chkmrk1 = Tex('$\checkmark$').next_to(sgm, RIGHT).set_color(GREEN)
         self.play(FadeIn(arr, sgm))
         self.play(Write(chkmrk1))
@@ -592,6 +636,7 @@ class hyper_p3_convexproof(SlideScene):
         label2 = Tex("NODE predictions").next_to(GOH_pr, UP).shift(0.6*RIGHT)
         self.play(FadeIn(label1))
         self.play(Write(GOH_gt), Write(txt1), run_time=3)
+        self.slide_break()
         self.play(GOH_gt.animate.shift(3*LEFT), txt1.animate.shift(3*LEFT), label1.animate.shift(3*LEFT))
         self.play(Write(GOH_pr), Write(txt2), FadeIn(label2))
         self.slide_break()
@@ -731,7 +776,15 @@ class hyper_p4_murine(SlideThreeDScene):
         self.move_camera(phi=-ang*DEGREES, theta=-0.5, gamma = 78*DEGREES) #visualize angles here: https://www.geogebra.org/m/hqPfxIpp
         for lst in dots_list:
             for dot in lst:
-                self.play(FadeIn(dot), run_time=0.05)
+                self.play(FadeIn(dot), run_time=0.01)
+        self.slide_break()
+
+        # Wiggle the dots to show training and validation sets
+        group1 = Group(*stry_dots, *equi_dots, *strx_dots)
+        group2 = Group(*offx_dots, *offy_dots)
+        self.play(ApplyWave(group1))
+        self.slide_break()
+        self.play(ApplyWave(group2))
         self.slide_break()
 
         #### Plot the GOH graph
@@ -920,12 +973,12 @@ class hyper_p5_boxplots(SlideScene):
         trn_legend_bar = Line(axes.coords_to_point(8,0.17), axes.coords_to_point(8.5, 0.17)).set_color(BLUE)
         trn_legend_tex = Tex("Training").next_to(trn_legend_bar,RIGHT)
 
-        self.play(*[FadeIn(label) for label in labels])
-        self.play(FadeIn(trn_legend_bar), FadeIn(trn_legend_tex))
-        self.play(*[Create(item) for item in trn_median_bars])
-        self.play(*[GrowFromEdge(item, DOWN) for item in trn_boxes_upper], *[GrowFromEdge(item, UP) for item in trn_boxes_lower])
-        self.play(*[Create(item) for item in trn_wh_body_upper], *[Create(item) for item in trn_wh_body_lower])
-        self.play(*[Create(item) for item in trn_wh_ends_upper], *[Create(item) for item in trn_wh_ends_lower])
+        self.play(*[FadeIn(label) for label in labels], run_time=0.5)
+        self.play(FadeIn(trn_legend_bar), FadeIn(trn_legend_tex), run_time=0.5)
+        self.play(*[Create(item) for item in trn_median_bars], run_time=0.5)
+        self.play(*[GrowFromEdge(item, DOWN) for item in trn_boxes_upper], *[GrowFromEdge(item, UP) for item in trn_boxes_lower], run_time=0.5)
+        self.play(*[Create(item) for item in trn_wh_body_upper], *[Create(item) for item in trn_wh_body_lower], run_time=0.5)
+        self.play(*[Create(item) for item in trn_wh_ends_upper], *[Create(item) for item in trn_wh_ends_lower], run_time=0.5)
 
         #### Validation box plots
         medians = [np.median(GOH[:148]), np.median(MR[:148]), np.median(HGO[:148]), np.median(Fung[:148]), np.median(NODE[:148])]
@@ -986,11 +1039,11 @@ class hyper_p5_boxplots(SlideScene):
         val_legend_bar = Line(axes.coords_to_point(8,0.15), axes.coords_to_point(8.5, 0.15)).set_color(GREEN).next_to(trn_legend_bar,1.8*DOWN)
         val_legend_tex = Tex("Validation").next_to(val_legend_bar,RIGHT)
 
-        self.play(FadeIn(val_legend_bar), FadeIn(val_legend_tex))
-        self.play(*[Create(item) for item in val_median_bars])
-        self.play(*[GrowFromEdge(item, DOWN) for item in val_boxes_upper], *[GrowFromEdge(item, UP) for item in val_boxes_lower])
-        self.play(*[Create(item) for item in val_wh_body_upper], *[Create(item) for item in val_wh_body_lower])
-        self.play(*[Create(item) for item in val_wh_ends_upper], *[Create(item) for item in val_wh_ends_lower])
+        self.play(FadeIn(val_legend_bar), FadeIn(val_legend_tex), run_time=0.5)
+        self.play(*[Create(item) for item in val_median_bars], run_time=0.5)
+        self.play(*[GrowFromEdge(item, DOWN) for item in val_boxes_upper], *[GrowFromEdge(item, UP) for item in val_boxes_lower], run_time=0.5)
+        self.play(*[Create(item) for item in val_wh_body_upper], *[Create(item) for item in val_wh_body_lower], run_time=0.5)
+        self.play(*[Create(item) for item in val_wh_ends_upper], *[Create(item) for item in val_wh_ends_lower], run_time=0.5)
         self.slide_break()
 
 
@@ -999,7 +1052,7 @@ class hyper_p5_boxplots(SlideScene):
                                             *trn_boxes_upper, *trn_boxes_lower, *trn_wh_body_upper, *trn_wh_body_lower,
                                             *trn_wh_ends_upper, *trn_wh_ends_lower, *val_legend_bar, *val_legend_tex, *val_median_bars, 
                                             *val_boxes_upper, *val_boxes_lower, *val_wh_body_upper, *val_wh_body_lower,
-                                            *val_wh_ends_upper, *val_wh_ends_lower]])
+                                            *val_wh_ends_upper, *val_wh_ends_lower, heading, node_title, node_cite]])
         # self.play(FadeOut(node_title, node_cite))
 
 
@@ -1082,33 +1135,47 @@ class visco(SlideScene):
 
         self.play(heading[1].animate.scale(1.2).set_color(YELLOW))
         self.play(heading[1].animate.scale(1/1.2).set_color(WHITE))
+        self.slide_break()
 
         """
         Start (almost direct) copy from the nvisco video
         """
         # self.wait(0.5)
-        heart = SVGMobject("heart.svg").scale(1.2).move_to(5*LEFT)
-        hearttitle = Tex("Myocardium").move_to(5*LEFT+1.5*UP).scale(0.7)
+        heart = SVGMobject("visco_figs/heart.svg").scale(1.2).move_to(5*LEFT + 1*UP)
+        hearttitle = Tex("Myocardium").move_to(5*LEFT+2.5*UP).scale(0.7)
         self.play(Write(heart), FadeIn(hearttitle))
-        brain = SVGMobject("brain.svg").move_to(1.8*LEFT)
-        braintitle = Tex("Brain tissue").move_to(1.8*LEFT+1.5*UP).scale(0.7)
+        brain = SVGMobject("visco_figs/brain.svg").move_to(1.8*LEFT + 1*UP)
+        braintitle = Tex("Brain tissue").move_to(1.8*LEFT+2.5*UP).scale(0.7)
         self.play(Write(brain), FadeIn(braintitle))
-        wheel = SVGMobject("wheel.svg").move_to(1.8*RIGHT)
-        wheeltitle = Tex("Rubber").move_to(1.8*RIGHT+1.5*UP).scale(0.7)
+        wheel = SVGMobject("visco_figs/wheel.svg").move_to(1.8*RIGHT + 1*UP)
+        wheeltitle = Tex("Rubber").move_to(1.8*RIGHT+2.5*UP).scale(0.7)
         self.play(Write(wheel), FadeIn(wheeltitle))
-        bc = SVGMobject("bc.svg").move_to(5 *RIGHT)
-        bctitle = Tex("Blood clots").move_to(5*RIGHT+1.5*UP).scale(0.7)
+        bc = SVGMobject("visco_figs/bc.svg").move_to(5 *RIGHT + 1*UP)
+        bctitle = Tex("Blood clots").move_to(5*RIGHT+2.5*UP).scale(0.7)
         self.play(Write(bc), FadeIn(bctitle))
         self.slide_break()
 
+        requirements = Group(
+            Tex('Modeling viscoelasticity:'),
+            Tex('1. Flexible models - data-driven methods'),
+            Tex('2. Rigorous formulation'),
+            Tex('3. Physical constraints - 2\\textsuperscript{nd} Law of Thermodynamics, etc.'),
+            Tex('4. Scope (large and rapid deformations) - Finite viscoelasticity'),
+            Tex('5. Anisotropic behavior')
+        ).arrange(DOWN, aligned_edge=LEFT, buff=0.3).scale(0.6).move_to(2*DOWN+1.5*LEFT)
+
+        for req in requirements:
+            self.play(Write(req))
+            self.slide_break()
+
         sample = Rectangle(width=0.5, height=0.5).move_to(heart).shift(0.3*RIGHT+0.5*DOWN).set_color(YELLOW)
-        FD = SVGMobject("FD.svg").move_to(sample).scale(0.2)
+        FD = SVGMobject("visco_figs/FD.svg").move_to(sample).scale(0.2)
         self.play(Create(sample))
 
         self.play(sample.animate.move_to(5*RIGHT+DOWN).scale(3),
                   FadeIn(FD),
                   FD.animate.move_to(5*RIGHT+DOWN).scale(3.4),
-                  FadeOut(heart, hearttitle, brain, braintitle, wheel, wheeltitle, bc, bctitle))
+                  FadeOut(heart, hearttitle, brain, braintitle, wheel, wheeltitle, bc, bctitle, requirements))
 
         MFDarrow = Arrow([0,0,0], [0,1,0]).scale(2.5).next_to(sample,LEFT)
         MFD = Tex("Mean Fiber Direction").next_to(MFDarrow,LEFT).scale(0.7).shift(0.8*RIGHT)
@@ -1298,41 +1365,132 @@ class visco(SlideScene):
         End (almost direct) copy from the nvisco video
         """
         
-        divider = Line([0,-1,0], [0,1,0])
-        self.play(Create(divider))
-        self.wait()
+        divider1 = Line([-2.6,-1,0], [-2.6,1,0])
+        divider2 = Line([1.7,-1,0], [1.7,1,0])
+        self.play(Create(divider1), Create(divider2))
 
-        eq = Tex("Equilibrium").next_to(divider, LEFT)
+        eq = Tex("Equilibrium").shift(4.3*LEFT)
         psi_eq = MathTex("\Psi_{EQ}").move_to(eq)
-        neq = Tex("Non-equilibrium").next_to(divider, RIGHT)
+        neq = Tex("Non-equilibrium").shift(0.3*LEFT)
         psi_neq = MathTex("\Psi_{NEQ}").move_to(neq)
+        diss = Tex("Dissipation potential").shift(4.2*RIGHT)
+        phi = MathTex("\Phi").move_to(diss)
 
-        self.play(Write(eq), Write(neq))
-        self.wait()
 
-        self.play(ReplacementTransform(eq, psi_eq), ReplacementTransform(neq, psi_neq))
+        self.play(Write(eq), Write(neq), Write(diss))
         self.slide_break()
+
+        self.play(ReplacementTransform(eq, psi_eq), ReplacementTransform(diss, phi))
+        self.slide_break()
+        self.play(ReplacementTransform(neq, psi_neq))
+        self.slide_break()
+        self.play(ReplacementTransform(diss, phi))
+        self.slide_break()
+
  
-        self.play(*[FadeOut(obj) for obj in [psi_eq, psi_neq, divider]])
 
-        disspot = Tex("Dissipation potential, $\Phi$").scale(0.75).set_color(YELLOW)
-        self.play(Write(disspot))
+        self.play(*[obj.animate.scale(1.2).set_color(YELLOW)  for obj in [psi_eq, psi_neq]])
+        self.play(*[obj.animate.scale(1/1.2).set_color(WHITE) for obj in [psi_eq, psi_neq]])
         self.slide_break()
 
-        self.play(disspot.animate.shift(1.2*UP))
-        self.wait()
+        self.play(phi.animate.scale(1.2).set_color(YELLOW))
+        self.play(phi.animate.scale(1/1.2))
+        self.slide_break()
+
+        # self.play(*[FadeOut(obj) for obj in [psi_eq, psi_neq, divider1]])
+        self.play(*[obj.animate.shift(20*LEFT) for obj in [eq, psi_eq, neq, psi_neq, divider1, divider2]], phi.animate.shift(4.2*LEFT))
+
+        self.play(phi.animate.shift(1.2*UP))
 
         evol_eq = MathTex(r"\mathcal{L}\mathbf{b}_e\mathbf{b}_e^{-1} = ", r"\frac{\partial \Phi}{\partial \tau_{NEQ}}")
         timestau = MathTex(r": \tau_{NEQ}", "\ge 0").next_to(evol_eq, RIGHT)
         self.play(Write(evol_eq))
-        self.slide_break()
+        self.slide_break() 
 
         self.play(Unwrite(evol_eq[0]))
         self.play(Write(timestau))
         self.play(evol_eq.animate.shift(LEFT*2.5), timestau.animate.shift(LEFT*2.5))
         self.slide_break()
 
-        self.play(FadeOut(evol_eq[1]), FadeOut(timestau), FadeOut(disspot, nvisco_cite, nodetitle))
+        positivediss = Group(
+            Tex('Positive dissipation criterion (2\\textsuperscript{nd} Law):'),
+            Tex('$\\bullet \,\,\, \Phi$ : Convex in $\\tau_{NEQ}, \quad$ or'),
+            Tex('$\\bullet \,\,\, \partial \Phi / \partial \\tau_{NEQ}$ : Monotonic in $\\tau_{NEQ}$'),
+        ).arrange(DOWN, aligned_edge=LEFT, buff=0.3).scale(0.7).move_to(3*LEFT+2*DOWN)
+
+        for item in positivediss:
+            self.play(Write(item))
+            self.slide_break()
+
+        self.play(FadeOut(evol_eq[1]), FadeOut(timestau), FadeOut(nvisco_cite, phi, nodetitle, positivediss))
+
+        scale = 2
+        shift = 0.5*DOWN
+        diss_stp1 = SVGMobject('visco_figs/diss_toprow_stp1.svg').scale(scale).shift(shift)
+        diss_label = Tex('Dissipation').rotate(90*DEGREES).scale(0.7).move_to(5.5*LEFT+0.2*DOWN)
+        labelset1 = MathTex('-1 \,\,\, (\\tau_{NEQ})_{11} \,\,\, 1').scale(0.7).move_to(3.8*LEFT+2*DOWN)
+        labelset2 = labelset1.copy().shift(4*RIGHT)
+        labelset3 = labelset2.copy().shift(4.25*RIGHT )
+        self.play(Write(diss_stp1), Write(diss_label), Write(labelset1))
+        self.slide_break()
+
+        uni = Tex('Uniaxial').scale(0.7).move_to(3.8*LEFT+1*UP)
+        equ = Tex('Equibiaxial').scale(0.7).move_to(0.25*RIGHT+1*UP)
+        ps = Tex('Pure shear').scale(0.7).move_to(4.5*RIGHT+1*UP)
+        self.play(Write(uni))
+        self.slide_break()
+
+        diss_stp2 = SVGMobject('visco_figs/diss_toprow_stp2.svg').scale(scale).shift(shift)
+        self.play(Write(diss_stp2))
+        self.slide_break()
+
+        diss_stp3 = SVGMobject('visco_figs/diss_toprow_stp3.svg').scale(scale).shift(shift)
+        self.play(Write(diss_stp3))
+        self.slide_break()
+
+        diss_stp4 = SVGMobject('visco_figs/diss_toprow_stp4.svg').scale(scale).shift(shift)
+        self.play(Write(diss_stp4))
+        self.slide_break()
+
+        diss_stp5 = SVGMobject('visco_figs/diss_toprow_stp5.svg').scale(scale).shift(shift)
+        self.play(Write(diss_stp5))
+        self.slide_break()
+
+        diss_stp6 = SVGMobject('visco_figs/diss_toprow_stp6.svg').scale(scale).shift(shift)
+        self.play(Write(diss_stp6), Write(equ), Write(labelset2))
+        self.slide_break()
+
+        diss_stp7 = SVGMobject('visco_figs/diss_toprow_stp7.svg').scale(scale).shift(shift)
+        self.play(Write(diss_stp7), Write(ps), Write(labelset3))
+        self.slide_break()
+
+        self.play(FadeOut(diss_stp1, diss_stp2, diss_stp3, diss_stp4, diss_stp5, diss_stp6, 
+                          diss_stp7, diss_label, labelset1, labelset2, labelset3, uni, equ, ps))
+        
+
+        scale = 2
+        shift = 0.5*DOWN
+        diss_stp1 = SVGMobject('visco_figs/diss_botrow_stp1.svg').scale(scale).shift(shift)
+        diss_label = Tex('Dissipation').rotate(90*DEGREES).scale(0.7).move_to(5.5*LEFT+0.5*DOWN)
+        self.play(Write(diss_stp1), Write(diss_label))
+        self.slide_break()
+
+        diss_stp2 = SVGMobject('visco_figs/diss_botrow_stp2.svg').scale(scale).shift(shift)
+        self.play(Write(diss_stp2))
+        self.slide_break()
+
+        diss_stp3 = SVGMobject('visco_figs/diss_botrow_stp3.svg').scale(scale).shift(shift)
+        self.play(Write(diss_stp3))
+        self.slide_break()
+
+        self.play(FadeOut(diss_stp1, diss_stp2, diss_stp3, diss_label))
+        self.slide_break()
+
+        brainfig = ImageMobject('visco_figs/fig_brain.png').scale(0.7)
+        self.play(FadeIn(brainfig))
+        self.slide_break()
+
+        self.play(FadeOut(brainfig))
 
 
 class damage(SlideScene):
@@ -1375,8 +1533,15 @@ class damage(SlideScene):
         self.play(Write(node))
         self.slide_break()
 
-        self.play(FadeOut(heading, dmg_title, dmg_cite, Psi, G_eqn, G_mono, node))
-        
+        self.play(FadeOut(Psi, G_eqn, G_mono, node))
+
+        subq_fig = ImageMobject('dmg_figs/fig_subq.png').scale(1.2).shift(0.5*DOWN)
+        self.play(FadeIn(subq_fig))
+        self.slide_break()
+
+        self.play(FadeOut(heading,  dmg_title, dmg_cite, subq_fig))
+
+
 
 class diff_p1_context(SlideScene):
     def construct(self):
@@ -1543,7 +1708,6 @@ class diff_p1_context(SlideScene):
         self.slide_break()
         self.play(FadeOut(*mice, ptheta, deftheta))
 
-
 class diff_p2_intro(SlideScene):
     def construct(self):
         heading = toc[2].copy().move_to(ORIGIN).scale(1.25).to_corner(UP)
@@ -1653,7 +1817,7 @@ class diff_p2_intro(SlideScene):
         self.play(ReplacementTransform(inp_img, line2), FadeOut(in_arrow), run_time=0.5)
         self.play(line2.animate.move_to(2.5*RIGHT+1.5*DOWN), run_time=1.5, rate_func=linear)
         self.play(ReplacementTransform(line2, out_img), FadeIn(out_arrow), run_time=0.5)
-        self.play(FadeOut(out_arrow, out_img), run_time=0.5)
+        # self.play(FadeOut(out_arrow, out_img), run_time=0.5)
 
         self.slide_break()
         self.play(FadeOut(diffbox, fwdsdebox, rvssdebox, difflabel, fwdsdelabel, rvssdelabel))
@@ -1839,8 +2003,185 @@ class diff_p3_diff4hyper(SlideScene):
         self.play(*anims)
         self.play(Create(data_label[0]), Create(data_label[1]))
 
-class contact_info(SlideScene):
+class diff_p4_fem(SlideScene):
     def construct(self):
+        heading = toc[2].copy().move_to(ORIGIN).scale(1.25).to_corner(UP)
+
+        gener = Tex("Generative Hyperelasticity with Physics-Informed Diffusion\\textsuperscript{6}").scale(0.7).shift(2.7*UP+1.5*LEFT)
+        gener_cite = Tex("\\begin{tabular}{c}\\textsuperscript{6}V. Tac, M.K. Rausch, I. Bilionis, F. Sahli Costabal, A. Buganza Tepole, Submitted, 2023.\\end{tabular}").scale(0.5).move_to(3.5*DOWN)
+        self.add(heading, gener, gener_cite)
+        
+        GaussianP = Tex("Gaussian Processes").set_color(YELLOW)
+        self.play(Create(GaussianP))
+        GP = Tex("GP").set_color(YELLOW)
+        self.slide_break()
+
+        self.play(ReplacementTransform(GaussianP, GP))
+
+        GP_def1 = Tex("A ").next_to(GP,LEFT)
+        GP_def2 = Tex(" is a").next_to(GP, RIGHT)
+        GP_def3 = Tex("random process, from which we can sample functions.").next_to(GP,DOWN)
+        self.play(FadeIn(GP_def1, GP_def2, GP_def3))
+        self.slide_break()
+
+        bullet1 = Tex("$\\cdot$").scale(2).next_to(GP_def3, DOWN, aligned_edge=LEFT)
+        point1 = Tex(r"The fields have a specific spatial correlation given by a covariance \\ function $k(x,x')$.").scale(0.7).next_to(bullet1, RIGHT, aligned_edge=UP)
+        self.play(FadeIn(bullet1, point1))
+
+        bullet2 = Tex("$\\cdot$").scale(2).next_to(bullet1, DOWN, aligned_edge=LEFT).shift(0.5*DOWN)
+        point2 = Tex(r"For a fixed $x=x^*$, the samples have a Normal distribution.").scale(0.7).next_to(bullet2, RIGHT, aligned_edge=UP)
+        self.play(FadeIn(bullet2, point2))
+        
+        self.slide_break()
+
+        self.play(FadeOut(GP, GP_def1, GP_def2, GP_def3, bullet1, bullet2, point1, point2))
+
+
+        GP_ax = Axes([0,1], [-3,3], x_length=7, y_length=5).scale(0.6).shift(1.5*DOWN)
+        GP_ax_labels = GP_ax.get_axis_labels(
+            Tex("$x$"), Tex("$f(x)$")
+        )
+        self.play(Create(GP_ax), Create(GP_ax_labels))
+        
+        ### Sample a function from a GP
+        def rbf_kernel(x1, x2, variance = 0.2):
+            return np.exp(-1 * ((x1-x2) ** 2) / (2*variance))
+
+        def gram_matrix(xs):
+            return [[rbf_kernel(x1,x2) for x2 in xs] for x1 in xs]
+
+        seed = 1
+        rng = np.random.default_rng(seed)
+        xs = np.arange(0, 1, 0.01)
+        mean = [0 for x in xs]
+        gram = gram_matrix(xs)
+        ys = rng.multivariate_normal(mean, gram)
+        GP_graph1 = GP_ax.plot_line_graph(xs, 
+                                         ys, 
+                                         stroke_width=3,
+                                         add_vertex_dots=False)
+        self.play(Create(GP_graph1))
+        self.slide_break()
+
+
+        GP_graphs = [GP_graph1]
+        for i in range(9):
+            ys = np.random.multivariate_normal(mean, gram)
+            gp_graph = GP_ax.plot_line_graph(xs,
+                                            ys,
+                                            stroke_width=3,
+                                            add_vertex_dots=False)
+            GP_graphs.append(gp_graph)
+        self.play(*[Create(obj) for obj in GP_graphs[1:]], run_time=2)
+        self.play(*[obj.animate.shift(3*LEFT) for obj in [GP_ax, GP_ax_labels, *GP_graphs]])
+
+        dashedline = DashedLine(1.5*UP, 1.5*DOWN, dash_length=0.2).shift(1.5*DOWN + 3*LEFT)
+        self.play(Create(dashedline))
+
+        dashedarrow = Arrow(1.5*DOWN, 1.5*DOWN + 2.5*RIGHT).shift(1.5*DOWN + 3*LEFT)
+        self.play(Create(dashedarrow))
+
+
+        noise_ax = Axes([0,1], [-3,3], x_length=7, y_length=5).scale(0.6).shift(1.5*DOWN + 3*RIGHT)
+        noise_ax_labels = noise_ax.get_axis_labels(
+            "", Tex("\"Noise\"")
+        )
+        self.play(Create(noise_ax), Create(noise_ax_labels))
+        xs = np.linspace(0,1, 10)
+        ys = np.random.normal(size=10)
+        noise_graph = noise_ax.plot_line_graph(xs, ys, stroke_width=3)
+        self.play(FadeIn(noise_graph))
+        self.slide_break()
+
+
+        self.play(FadeOut(GP_ax, GP_ax_labels, dashedline, dashedarrow, *GP_graphs))
+        self.play(*[obj.animate.scale(0.6).shift(8*LEFT) for obj in [noise_ax, noise_ax_labels, noise_graph]])
+
+
+        # passing = Tex("Passing these fields through a Reverse SDE\\textsuperscript{*} we get fields of material properties $\\theta(x)$.").scale(0.8).move_to(2*UP)
+        rvssdebox = Rectangle(width=5, height=1).shift(1.5*DOWN).set_color(BLUE)
+        rvssdelabel = Tex("Reverse SDE").shift(1.5*DOWN).set_color(BLUE)
+        arrow1 = Tex("$\\rightarrow$").next_to(rvssdebox,LEFT)
+        self.play(FadeIn(rvssdebox, rvssdelabel, arrow1))
+        self.slide_break()
+        
+        arrow2 = Tex("$\\rightarrow$").next_to(rvssdebox,RIGHT)
+        theta_ax = Axes([0,1], [-3,3], x_length=7, y_length=5).scale(0.6).scale(0.6).next_to(arrow2,RIGHT)
+        theta_ax_labels = theta_ax.get_axis_labels(
+            Tex("$x$"), Tex("$\\boldsymbol{\\theta}(x)$")
+        )
+        self.play(FadeIn(arrow2, theta_ax, theta_ax_labels))
+        xs = np.arange(0, 1, 0.01)
+        theta_graphs = []
+        for i in range(10):
+            ys = np.random.multivariate_normal(mean, gram)
+            graph = theta_ax.plot_line_graph(xs,
+                                            ys,
+                                            stroke_width=3,
+                                            add_vertex_dots=False)
+            theta_graphs.append(graph)
+        self.play(*[Create(graph) for graph in theta_graphs])
+        self.slide_break()
+
+        self.play(FadeOut(noise_ax, noise_ax_labels, noise_graph, *theta_graphs, theta_ax, theta_ax_labels, rvssdebox, rvssdelabel, arrow1, arrow2))
+
+
+        # hetero = Tex("Using the same method we can generate 2D correlated fields and perform FE analysis of heterogeneous materials in Abaqus.").scale(0.8).move_to(2*UP)
+        # self.play(Create(hetero))
+        # self.wait(0.5)
+        
+        lenscale02 = Tex("Length scale 0.2L").scale(0.8).move_to(1*UP+5*LEFT)
+        lenscale04 = Tex("Length scale 0.4L").scale(0.8).move_to(1*UP)
+        lenscale06 = Tex("Length scale 0.6L").scale(0.8).move_to(1*UP+5*RIGHT)
+
+        self.play(FadeIn(lenscale02, lenscale04, lenscale06))
+        imgs1 = []
+        for i in range(8):
+            fname = "diffusion_figs/square_lenscale_10.0_init_1_param_" + str(i) + ".png"
+            img = ImageMobject(fname).scale(0.7).next_to(lenscale02, DOWN).shift(i*(0.1*DOWN + 0.1*RIGHT))
+            self.play(FadeIn(img), run_time=0.5)
+            imgs1.append(img)
+        
+        imgs2 = []
+        for i in range(8):
+            fname = "diffusion_figs/square_lenscale_20.0_init_1_param_" + str(i) + ".png"
+            img = ImageMobject(fname).scale(0.7).next_to(lenscale04, DOWN).shift(i*(0.1*DOWN + 0.1*RIGHT))
+            self.play(FadeIn(img), run_time=0.5)
+            imgs2.append(img)
+        
+        imgs3 = []
+        for i in range(8):
+            fname = "diffusion_figs/square_lenscale_30.0_init_1_param_" + str(i) + ".png"
+            img = ImageMobject(fname).scale(0.7).next_to(lenscale06, DOWN).shift(i*(0.1*DOWN + 0.1*RIGHT))
+            self.play(FadeIn(img), run_time=0.5)
+            imgs3.append(img)
+
+        self.slide_break()
+        self.play(FadeOut(*imgs1, *imgs2, *imgs3, lenscale02, lenscale04, lenscale06, gener, gener_cite, heading))
+
+
+class conclusion(SlideScene):
+    def construct(self):
+        conc = Tex('Conclusion').scale(0.7*1.25).to_corner(UP)
+        self.play(Write(conc))
+        self.slide_break()
+
+        conc_1 = Tex('Use ', 'machine learning', ' methods').shift(1*UP+3*LEFT)
+        conc_2 = Tex('to develop ', 'highly flexible', ' material models')
+        conc_3 = Tex('that obey ', 'physics by design.').shift(1*DOWN+3*RIGHT)
+        conc_1[1].set_color(YELLOW)
+        conc_2[1].set_color(YELLOW)
+        conc_3[1].set_color(YELLOW)
+
+        self.play(FadeIn(conc_1))
+        self.slide_break()
+        self.play(FadeIn(conc_2))
+        self.slide_break()
+        self.play(FadeIn(conc_3))
+        self.slide_break()
+
+        self.play(FadeOut(conc, conc_1, conc_2, conc_3))
+
         twitter_logo = SVGMobject("Twitter-logo.svg").scale(0.25).shift(UP + LEFT)
         twitter_addr = Text("@tajtac").next_to(twitter_logo).shift(0.05*DOWN)
         web_logo = SVGMobject('web.svg').scale(0.25).set_color(GREEN).shift(LEFT)

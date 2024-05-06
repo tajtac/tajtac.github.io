@@ -4,4 +4,5 @@
 <p class="fragment" type='video' time_start=10.250000000000053 time_end=13.750000000000203></p>
 <p class="fragment" type='video' time_start=13.750000000000203 time_end=16.250000000000302></p>
 <p class="fragment" type='video' time_start=16.250000000000302 time_end=17.750000000000245></p>
-<p class="fragment" type='video' time_start=17.750000000000245 time_end=19.00000000000019></p>
+<p class="fragment" type='video' time_start=17.750000000000245 time_end=20.25000000000013></p>
+<p class="fragment" type='video' time_start=20.25000000000013 time_end=21.500000000000075></p>
