@@ -1713,12 +1713,6 @@ class diff_p2_intro(SlideScene):
         heading = toc[2].copy().move_to(ORIGIN).scale(1.25).to_corner(UP)
         self.add(heading)
 
-        # gener = Tex("Generative Hyperelasticity with Physics-Informed Diffusion\\textsuperscript{6}").scale(0.7).shift(2.5*UP+1.5*LEFT)
-        # gener_cite = Tex("\\begin{tabular}{c}\\textsuperscript{6}V. Tac, M.K. Rausch, I. Bilionis, F. Sahli Costabal, A. Buganza Tepole, Submitted, 2023.\\end{tabular}").scale(0.5).move_to(3.5*DOWN)
-        # self.play(Write(gener))
-        # self.play(FadeIn(gener_cite))
-        # self.slide_break()
-
         myshift = 0.5*LEFT
         diffbox = Rectangle(width=3, height=2).set_fill(color=BLUE, opacity=1).shift(myshift)
         difflabel = Tex(r"Diffusion \\ $p(\mathbf{x})$ \checkmark").set_color(BLACK).shift(myshift)
@@ -2011,9 +2005,9 @@ class diff_p4_fem(SlideScene):
         gener_cite = Tex("\\begin{tabular}{c}\\textsuperscript{6}V. Tac, M.K. Rausch, I. Bilionis, F. Sahli Costabal, A. Buganza Tepole, Submitted, 2023.\\end{tabular}").scale(0.5).move_to(3.5*DOWN)
         self.add(heading, gener, gener_cite)
         
-        GaussianP = Tex("Gaussian Processes").set_color(YELLOW)
+        GaussianP = Tex("Gaussian Processes").set_color(YELLOW).shift(1*UP)
         self.play(Create(GaussianP))
-        GP = Tex("GP").set_color(YELLOW)
+        GP = Tex("GP").set_color(YELLOW).shift(1*UP)
         self.slide_break()
 
         self.play(ReplacementTransform(GaussianP, GP))
@@ -2024,7 +2018,7 @@ class diff_p4_fem(SlideScene):
         self.play(FadeIn(GP_def1, GP_def2, GP_def3))
         self.slide_break()
 
-        bullet1 = Tex("$\\cdot$").scale(2).next_to(GP_def3, DOWN, aligned_edge=LEFT)
+        bullet1 = Tex("$\\cdot$").scale(2).next_to(GP_def3, DOWN, aligned_edge=LEFT).shift(0.5*DOWN)
         point1 = Tex(r"The fields have a specific spatial correlation given by a covariance \\ function $k(x,x')$.").scale(0.7).next_to(bullet1, RIGHT, aligned_edge=UP)
         self.play(FadeIn(bullet1, point1))
 
@@ -2037,7 +2031,7 @@ class diff_p4_fem(SlideScene):
         self.play(FadeOut(GP, GP_def1, GP_def2, GP_def3, bullet1, bullet2, point1, point2))
 
 
-        GP_ax = Axes([0,1], [-3,3], x_length=7, y_length=5).scale(0.6).shift(1.5*DOWN)
+        GP_ax = Axes([0,1], [-3,3], x_length=7, y_length=5).scale(0.6)#.shift(1.5*DOWN)
         GP_ax_labels = GP_ax.get_axis_labels(
             Tex("$x$"), Tex("$f(x)$")
         )
@@ -2075,14 +2069,14 @@ class diff_p4_fem(SlideScene):
         self.play(*[Create(obj) for obj in GP_graphs[1:]], run_time=2)
         self.play(*[obj.animate.shift(3*LEFT) for obj in [GP_ax, GP_ax_labels, *GP_graphs]])
 
-        dashedline = DashedLine(1.5*UP, 1.5*DOWN, dash_length=0.2).shift(1.5*DOWN + 3*LEFT)
+        dashedline = DashedLine(1.5*UP, 1.5*DOWN, dash_length=0.2).shift(3*LEFT)
         self.play(Create(dashedline))
 
-        dashedarrow = Arrow(1.5*DOWN, 1.5*DOWN + 2.5*RIGHT).shift(1.5*DOWN + 3*LEFT)
+        dashedarrow = Arrow(1.5*DOWN, 1.5*DOWN + 2.5*RIGHT).shift(3*LEFT)
         self.play(Create(dashedarrow))
 
 
-        noise_ax = Axes([0,1], [-3,3], x_length=7, y_length=5).scale(0.6).shift(1.5*DOWN + 3*RIGHT)
+        noise_ax = Axes([0,1], [-3,3], x_length=7, y_length=5).scale(0.6).shift(3*RIGHT)
         noise_ax_labels = noise_ax.get_axis_labels(
             "", Tex("\"Noise\"")
         )
@@ -2099,8 +2093,8 @@ class diff_p4_fem(SlideScene):
 
 
         # passing = Tex("Passing these fields through a Reverse SDE\\textsuperscript{*} we get fields of material properties $\\theta(x)$.").scale(0.8).move_to(2*UP)
-        rvssdebox = Rectangle(width=5, height=1).shift(1.5*DOWN).set_color(BLUE)
-        rvssdelabel = Tex("Reverse SDE").shift(1.5*DOWN).set_color(BLUE)
+        rvssdebox = Rectangle(width=5, height=1).set_color(BLUE)
+        rvssdelabel = Tex("Reverse SDE").set_color(BLUE)
         arrow1 = Tex("$\\rightarrow$").next_to(rvssdebox,LEFT)
         self.play(FadeIn(rvssdebox, rvssdelabel, arrow1))
         self.slide_break()
@@ -2125,14 +2119,10 @@ class diff_p4_fem(SlideScene):
 
         self.play(FadeOut(noise_ax, noise_ax_labels, noise_graph, *theta_graphs, theta_ax, theta_ax_labels, rvssdebox, rvssdelabel, arrow1, arrow2))
 
-
-        # hetero = Tex("Using the same method we can generate 2D correlated fields and perform FE analysis of heterogeneous materials in Abaqus.").scale(0.8).move_to(2*UP)
-        # self.play(Create(hetero))
-        # self.wait(0.5)
         
-        lenscale02 = Tex("Length scale 0.2L").scale(0.8).move_to(1*UP+5*LEFT)
-        lenscale04 = Tex("Length scale 0.4L").scale(0.8).move_to(1*UP)
-        lenscale06 = Tex("Length scale 0.6L").scale(0.8).move_to(1*UP+5*RIGHT)
+        lenscale02 = Tex("Length scale 0.2L").scale(0.8).move_to(1.5*UP+5*LEFT)
+        lenscale04 = Tex("Length scale 0.4L").scale(0.8).move_to(1.5*UP)
+        lenscale06 = Tex("Length scale 0.6L").scale(0.8).move_to(1.5*UP+5*RIGHT)
 
         self.play(FadeIn(lenscale02, lenscale04, lenscale06))
         imgs1 = []
