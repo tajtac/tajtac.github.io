@@ -19,7 +19,7 @@
 
     - title: Research Assistant
       institution: Purdue University, IN, USA
-      year: 2021 - Now
+      year: 2021 - 2024
       description:
         - Developed a model of hyperelastic material behavior based on feed-forward neural networks in Python/TensorFlow.
         - Used special properties of Neural ODEs to develop a model of hyperelasticity where physics-based constraints are satisfied a priori using Python/JAX. This approach circumvents the use of a complicated loss function thus avoiding a large number of unnecessary floating-point operations.
