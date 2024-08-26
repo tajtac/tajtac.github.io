@@ -8,12 +8,45 @@
     - name: Languages
       value: English, Turkish, Persian, Turkmen, Russian
 
+- title: Experience
+  type: time_table
+  contents:
+    - title: Postdoctoral Scholar
+      institution: Stanford University, CA, USA
+      year: 2024 - Now
+      description:
+        - Using experiments, finite element modeling, and machine learning to expand our understanding of the biomechanics of concussion
+
+    - title: Research Assistant
+      institution: Purdue University, IN, USA
+      year: 2021 - Now
+      description:
+        - Developed a model of hyperelastic material behavior based on feed-forward neural networks in Python/TensorFlow.
+        - Used special properties of Neural ODEs to develop a model of hyperelasticity where physics-based constraints are satisfied a priori using Python/JAX. This approach circumvents the use of a complicated loss function thus avoiding a large number of unnecessary floating-point operations.
+        - Developed the first fully data-driven, physics-informed model of finite viscoelasticity. The model uses Neural ODEs to model viscoelasticity in such a way that the relevant physical laws are satisfied automatically.
+
+    - title: Structural Design Engineer
+      institution: Turkish Aerospace Industries, Ankara, Turkey
+      year: 2018-2021
+      description:
+        - Designed various spacecraft parts such as structural panels, inserts and brackets. Spearheaded the development of the first structural panel with embedded active cooling in TAI.
+        
+    - title: Research Engineer
+      institution: TUBITAK Space Technologies Research Institute, Ankara, Turkey
+      year: 2017 - 2018
+      description:
+        - title: "Developed two engineering software packages using Visual Basic and MATLAB:"
+          contents:
+            - Aircraft conceptual design
+            - Prediction of failure modes of composite materials 
+        - The packages received praise for being user friendly and responsive.
+
 - title: Education
   type: time_table
   contents:
     - title: PhD in Mechanical Engineering
       institution: Purdue University, IN, USA
-      year: 2021-now
+      year: 2021-2024
       description:
         - "Dissertation title: Data-driven modeling of elastic and inelastic processes"
     - title: MSc in Aerospace Engineering
@@ -25,41 +58,12 @@
       institution: Middle East Technical University, Ankara, Turkey
       year: 2012-2016
 
-- title: Experience
-  type: time_table
-  contents:
-    - title: Research Assistant
-      institution: Purdue University, IN, USA
-      year: 2021 - Now
-      description:
-        - Developed a model of hyperelastic material behavior based on feed-forward neural networks in Python/TensorFlow.
-        - Used special properties of Neural ODEs to develop a model of hyperelasticity where physics-based constraints are satisfied a priori using Python/JAX. This approach circumvents the use of a complicated loss function thus avoiding a large number of unnecessary floating-point operations.
-        - Developed the first physics-informed data-driven model of finite viscoelasticity in the world. The project uses Neural ODEs to model viscoelasticity in such a way that the relevant physical laws are satisfied automatically.
-        - Currently working on a hierarchical Bayesian model of hyperelasticity using Bayesian Neural Networks (BNNs) in Python/Numpyro. The model can characterize the uncertainty in training data and transfer knowledge from the population to an individual.
-
-    - title: Structural Design Engineer
-      institution: Turkish Aerospace Industries, Ankara, Turkey
-      year: 2018-2021
-      description:
-        - Designed various spacecraft parts such as structural panels, inserts and brackets. Spearheaded the development of the first structural panel with embedded active cooling in TAI.
-        
-
-    - title: Research Engineer
-      institution: TUBITAK Space Technologies Research Institute, Ankara, Turkey
-      year: 2017 - 2018
-      description:
-        - title: "Developed two engineering software packages using Visual Basic and MATLAB:"
-          contents:
-            - Aircraft conceptual design
-            - Prediction of failure modes of composite materials 
-        - The packages received praise for being user friendly and responsive.
-
 - title: Honors and Awards
   type: time_table
   contents:
     - year: 2023
       items:
-        - Travel for Collaborative Research (TRACER) grant, Purdue University, 2023.
+        - <a href="https://engineering.purdue.edu/Engr/AboutUs/News/Spotlights/2023/2023-0929-tracer">Travel for Collaborative Research (TRACER) grant</a>, Purdue University, 2023.
         - Travel award from SES to attend the Inaugural SES Future Faculty Symposium in 2023.
     - year: 2022
       items: 
@@ -92,4 +96,4 @@
 - title: Skills
   type: list
   contents:
-    - Research, FEM, machine learning, Python, JAX, TensorFlow, PyTorch, FORTRAN, MATLAB
+    - FEM, machine learning, Python, JAX, TensorFlow, PyTorch, FORTRAN, MATLAB
