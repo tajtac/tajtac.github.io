@@ -18,6 +18,8 @@ selected_papers: false # includes a list of papers marked as "selected={true}"
 social: true  # includes social icons at the bottom of the page
 ---
 
-I am a Postdoctoral Scholar in the Department of Mechanical Engineering at Stanford University, developing generative AI models for material design using burgers as a model system. Previously, I completed my PhD at Purdue University.
+I am a Postdoctoral Scholar in the Department of Mechanical Engineering at Stanford University, developing generative AI models for material design using burgers as a model system. 
 
-My research focuses on integrating `physics` into `machine learning` models as hard constraints. In my PhD, I developed machine learning models of material behaviors like hyperelasticity, viscoelasticity and damage using machine learning methods in a way that the underlying physics is <i>always</i> satisfied. Recently, I used `diffusion`, a mathematical model used in Generative AI, to construct a generative framework for physics-informed hyperelasticity.
+Please visit <a href="https://ai4burgers.com/">`ai4burgers.com`</a> to generate your own burger using our generative AI.
+
+My research focuses on integrating `physics` into `machine learning` models as hard constraints. In my PhD at Purdue University, I developed machine learning models of material behaviors like hyperelasticity, viscoelasticity and damage using machine learning methods in a way that the underlying physics is <i>always</i> satisfied. Recently, I used `diffusion`, a mathematical model used in Generative AI, to construct a generative framework for physics-informed hyperelasticity.
