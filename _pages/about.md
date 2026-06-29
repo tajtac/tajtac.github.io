@@ -6,7 +6,7 @@ subtitle: Schmidt Science Fellow at Stanford University
 
 profile:
   align: right
-  image: vahid_pic4.jpg
+  image: vahid_pic5.jpg
   image_circular: false # crops the image to make it circular
   # address: >
   #   <p>307 Montefiore St.</p>
